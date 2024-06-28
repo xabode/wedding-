@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah & Nurul Akad Nikah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Base styles for all devices */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* Background color for the extra space */
+            height: 100vh;
+            overflow: hidden; 
+        }
+
+        .wrapper {
+    display: block;
+    flex-direction: column;
+    width: 100%;
+    /*max-width: 400px;  Fixed width mimicking phone screen width */
+    background-color: white; /* Background color of the main content */
+    position: relative; /* For absolute positioning of panels */
+    overflow: hidden; /* To prevent overflow issues with absolute positioning */
+    height: 100vh; /* Ensure the wrapper fills the viewport height */
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: right; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
+    height: calc(100vh - 56px); /* Subtract the height of the navbar */
+    flex-direction: column; /* Ensure that elements stack vertically */
+    text-align: center;
+    background: url('background.png') no-repeat center center;
+    background-size: cover; /* Ensures the background image covers the container */
+}
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: palevioletred;
+            width: 100%;
+            z-index: 20; /* Ensure navbar is on top */         
+        }
+
+        .navbar a {
+            flex: 1;
+            text-align: center;
+            padding: 14px 0;
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+            position: relative;
+        }
+
+        .navbar a .icon {
+            font-size: 16px;
+            color: white !important;   
+            fill: white;
+        }
+
+        .navbar a .icon svg {
+            fill: white; /* Set the fill color to white */
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .panel {
+            display: none;
+            position: absolute;
+            bottom: 56px;
+            left: 0;
+            width: 90%;
+            padding-bottom: 100px;
+            line-height: 20px !important;
+            background-color: white;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+            padding: 20px;
+            z-index: 10;
+            overflow-y: auto;
+        }
+
+        .panel-flex {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-block {
+            display: block;
+        }
+
+        .panel iframe,
+        .panel a,
+        .panel p {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .panel a {
+            color: green;
+            text-decoration: underline;
+        }
+
+        .panel .icon {
+            margin-right: 8px;
+        }
+
+        .Location-item{
+
+            display: flex;
+            padding: auto;
+            align-items: center;
+            text-align:auto ;
+            justify-content: space-between;
+            margin: 0.5em;
+           
+
+        }
+
+        .calender-item{
+
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0.5em;
+
+        }
+        .calender-iteml{
+            padding: auto;
+            align-items: center;
+            text-align: center;
+
+        }
+
+        .calender-itemr{
+            padding: auto;
+            align-items: center;
+            text-align: center;
+
+        }
+
+
+        .show {
+            display: inline-block;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 600px) {
+            .panel{
+                bottom: 0;
+            }
+            .navbar{
+                bottom: 0;
+            }
+            body {
+                background-color: lightblue;
+            }
+        }
+
+        /* Laptop styles */
+        @media (min-width: 601px) {
+            .wrapper{
+                max-width: 400px;
+            }
+            body {
+                background-color: #f0f0f0;
+            }
+        }
+
+        /* Picture cover styles */
+        .cover {
+            
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('card2.png') no-repeat center center;
+            background-size: cover;
+            z-index: 30; /* Ensure cover is on top */
+            display: block;
+            justify-content: center;
+            align-items: center;
+        
+        }
+        .cover-text{
+            padding: auto;
+            padding-top: 50%;
+            text-align: center;
+            color:  rgb(107, 118, 94);
+        }
+
+        .cover button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: rgba(211, 55, 204, 0.6);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            z-index: 31; /* Ensure button is on top */
+        }
+
+        .cover.slide-up {
+            animation: slideUpAndDisappear 1s forwards;
+        }
+
+        @keyframes slideUpAndDisappear {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
+
+        .contact-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0em;
+    }
+
+    .contact-info {
+        flex-grow: 1;
+    }
+
+    .contact-name {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .contact-role {
+        font-size: 0.9em;
+        color: gray;
+        margin: 0;
+    }
+
+    .contact-icons {
+        display: flex;
+        gap: 0.5em;
+    }
+
+    .contact-item a {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    text-decoration: none;
+    color: #333;
+    margin-left: 0px; /* Adjust this value as needed */
+    }
+
+    .container::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* Optional: Just to ensure the scroll bar is invisible */
+    }
+
+    .container {
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .container {
+        overflow-y: scroll; /* Keep scroll functionality */
+    }
+
+    .countdown-box {
+    border: 2px solid #333;
+    padding: 10px;
+    
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    }
+
+    .greeting {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.names {
+    font-size: 24px;
+    font-family: 'YaquoteScript', serif;
+}
+
+.invitation {
+    font-size: 18px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Add more styles as needed for other classes */
+@font-face {
+    font-family: 'YaquoteScript';
+    src: url('YaquoteScript.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Aceh';
+    src: url('Aceh.otf') format('truetype');
+}
+.names-text {
+    font-size: 48px;
+    font-family: 'YaquoteScript', serif;
+}
+.buttonIN{
+padding-left: 30%;
+padding-top: 30%;
+}
+
+.greeting-text{
+
+    font-size: 20px;
+    font-family: 'Aceh', serif;
+}
+
+.Gift-items{
+    text-align: center;
+    align-items: center;
+    padding: auto;
+}
+
+.card2 {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Adjust as needed */
+            margin: auto;
+        }
+        .pictureGo {
+            width: 100%;
+            display: block;
+        }
+        .back-text, .names-card, .invitation-card {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: rgb(107, 118, 94); /* Change text color if needed */
+        }
+        .back-text {
+            top: 30%;
+            font-size: 2em; /* Adjust as needed */
+            font-weight: bold;
+            padding: auto;
+        }
+        .names-card {
+            top: 45%;
+            font-family: 'YaquoteScript', serif;
+            font-size: 1.5em; /* Adjust as needed */
+            padding: auto;
+        }
+        .invitation-card {
+            top: 60%;
+            font-size: 1em; /* Adjust as needed */
+            padding: auto;
+        }
+        .malay-V{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .buttons {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background-color: #c29cd2; /* Change color as needed */
+        }
+        .buttons button:first-child {
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+        .buttons button:last-child {
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .buttons button:nth-child(2) {
+            border-radius: 0;
+        }
+        .itinerary {
+            display: none;
+        }
+        .itinerary.active {
+            display: block;
+        }
+        .my-4 {
+            margin: 1.5rem 0;
+        }
+        .handwrite12 {
+            font-family: 'Cursive', sans-serif; /* Update with the appropriate font */
+        }
+        .sec-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .venue-title, .itinerary-title, .attire-title {
+            margin-bottom: 1rem;
+        }
+        .venue-address, .itinerary-item, .itinerary-time, .attire-description, .hashtag {
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+  
+    <div class="wrapper">
+        <div class="cover" id="cover">
+            <div class="cover-text">
+                <strong class="greeting-text">Majlis Nikah</strong>
+                <p class="names-text" >Abdullah<br> &<br> Nurul</p>
+                <p class="invitation-text">Sabtu, 07 September 2024</p>
+            
+        </div>
+        <div class="buttonIN"> 
+            <button onclick="slideUp()" >Open Invitation</button>
+        </div>
+        </div>
+        <div class="container">
+
+
+            <div class="card2">
+                <img src="card2.png" class="pictureGo" alt="Invitation Background">
+                <p class="back-text"><br>Majlis Nikah</p>
+                <p class="names-card">Abdullah<br>&<br>Nurul</p>
+                <p class="invitation-card">Sabtu, 07 September 2024</p>
+            </div>
+
+            <div class="buttons">
+                <button onclick="showContent('malay')">MY</button>
+                <button onclick="showContent('english')">EN</button>
+                <button onclick="showContent('arabic')">AR</button>
+            </div>
+            
+            <div id="malay" class="itinerary active">
+                <div class="malay-V">
+                    <p class="greeting">Assalamualaikum W.B.T & Salam Sejahtera</p>
+                    <p class="names">Abdul Saheed <br>& <br> Mahfuzah</p>
+                    <p class="invitation">Dengan segala hormatnya kami menjemput <br>Tan Sri | Puan Sri | Dato' | Datin | Tuan | Puan | Encik | Cik <br>hadir ke majlis nikah puteri kami</p>
+                    <p class="couple">NURULJANNAH BINTI ABDUL SAHEED<br>& <br>ABDULLAH ABDULJALIL AL-AREFI</p>
+                    <img src="UP.SVG" class="my-4" style="width: 35%;">
+                    <p class="date">Sabtu <br> 07 September 2024</p>
+                    <img src="down.SVG" class="my-4" style="width: 35%;">
+                    <p id="txt_venue" class="mb-1 handwrite12 sec-title venue-title">LOKASI MAJLIS</p>
+                    <p class="ql-address mb-0 venue-address"><span style="font-size: 18px;">Tamu Hotel</span></p>
+                    <p id="txt_itinerary" class="mb-1 handwrite12 sec-title itinerary-title">ATUR CARA MAJLIS</p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Ketibaan Tetamu:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:15 pagi - 10:30 pagi</span></p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Majlis Akad Nikah:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:30 pagi - 11:40 pagi</span></p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Jamuan Makan:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">12:00 tgh hari - 2:30 petang</span></p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Penutup:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">2:30 petang</span></p>
+                        <p class="ql-align-center hashtag"><strong style="font-size: 18px;">#JannahAbode</strong></p>
+                        <p class="ql-align-center attire-title"><strong style="font-size: 20px;">Pakaian</strong><span style="font-size: 20px;">:</p>
+                        <p class="ql-align-center attire-description"><span style="font-size: 18px;">Traditional/ BlackTie/ Formal Suit</span></p>
+                        <p class="ql-align-center hashtag"><br></p>
+                </div>
+            </div>
+            
+            <div id="english" class="itinerary">
+                <div class="english-V">
+                    <p class="greeting">Peace be upon you & Greetings</p>
+                    <p class="names">Abdul Saheed <br>& <br> Mahfuzah</p>
+                    <p class="invitation">We respectfully invite<br>Tan Sri | Puan Sri | Dato' | Datin | Mr | Mrs | Ms <br>to attend the wedding ceremony of our daughter</p>
+                    <p class="couple">NURULJANNAH BINTI ABDUL SAHEED<br>& <br>ABDULLAH ABDULJALIL AL-AREFI</p>
+                    <img src="UP.SVG" class="my-4" style="width: 35%;">
+                    <p class="date">Saturday <br> 07 September 2024</p>
+                    <img src="down.SVG" class="my-4" style="width: 35%;">
+                    <p id="txt_venue" class="mb-1 handwrite12 sec-title venue-title">VENUE</p>
+                    <p class="ql-address mb-0 venue-address"><span style="font-size: 18px;">Tamu Hotel</span></p>
+                    <p id="txt_itinerary" class="mb-1 handwrite12 sec-title itinerary-title">ITINERARY</p>
+                    
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Guest Arrival:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:15 AM - 10:30 AM</span></p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Wedding Ceremony:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:30 AM - 11:40 AM</span></p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Lunch:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">12:00 PM - 2:30 PM</span></p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Closing:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">2:30 PM</span></p>
+                    
+                        <p class="ql-align-center attire-title"><strong style="font-size: 20px;">Attire</strong><span style="font-size: 20px;">:</span></p>
+                        <p class="ql-align-center attire-description"><span style="font-size: 18px;">Traditional/ BlackTie/ Formal Suit</span></p>
+                        <p class="ql-align-center hashtag"><br></p>
+                        <p class="ql-align-center hashtag"><strong style="font-size: 18px;">#JannahAbode</strong></p>
+                    
+                   
+                        <p class="ql-align-center attire-title"><strong style="font-size: 20px;">Attire</strong><span style="font-size: 20px;">:</p>
+                        <p class="ql-align-center attire-description"><span style="font-size: 18px;">Traditional/ BlackTie/ Formal Suit</span></p>
+                        <p class="ql-align-center hashtag"><br></p>
+                    
+                </div>
+            </div>
+            
+            <div id="arabic" class="itinerary">
+                <div class="arabic-V">
+                    <p class="greeting">السلام عليكم ورحمة الله وبركاته</p>
+                    <p class="names">عبدالشهيد <br>& <br> محفوظة</p>
+                    <p class="invitation">نتشرف بدعوتكم <br>حضر السيد | السيدة | الأستاذ | الأستاذة <br>لحضور حفل زفاف ابنتنا</p>
+                    <p class="couple">نورالجنة بنت عبدالشهيد<br>& <br>عبدالله عبدالجليل العريفي</p>
+                    <img src="UP.SVG" class="my-4" style="width: 35%;">
+                    <p class="date">السبت <br> 07 سبتمبر 2024</p>
+                    <img src="down.SVG" class="my-4" style="width: 35%;">
+                    <p id="txt_venue" class="mb-1 handwrite12 sec-title venue-title">مكان الحفل</p>
+                    <p class="ql-address mb-0 venue-address"><span style="font-size: 18px;">فندق تامو</span></p>
+                    <p id="txt_itinerary" class="mb-1 handwrite12 sec-title itinerary-title">جدول الحفل</p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">وصول الضيوف:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:15 صباحًا - 10:30 صباحًا</span></p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">حفل الزفاف:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:30 صباحًا - 11:40 صباحًا</span></p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">وجبة الغداء:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">12:00 ظهرًا - 2:30 مساءً</span></p>
+                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">الختام:</strong></p>
+                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">2:30 مساءً</span></p>
+                        <p class="ql-align-center attire-title"><strong style="font-size: 20px;">الملابس</strong><span style="font-size: 20px;">:</span></p>
+                        <p class="ql-align-center attire-description"><span style="font-size: 18px;">تقليدية/ ربطة عنق سوداء/ بدلة رسمية</span></p>
+                        <p class="ql-align-center hashtag"><br></p>
+                        <p class="ql-align-center hashtag"><strong style="font-size: 18px;">#JannahAbode</strong></p>
+                </div>
+            </div>
+            <!-- Countdown timer element -->
+            <div class="countdown-box">
+                <p class="ql-align-center countdown-title"><strong style="font-size: 18px;">Countdown to the Event:</strong></p>
+                <p class="ql-align-center countdown-timer" id="countdown-timer" style="font-size: 18px;"></p>
+            </div>
+        
+        </div>
+        
+        <div class="navbar">
+            <a href="#music" class="nav-link" data-target="musicPanel"><img src="music.svg" width="24" height="24"><br>Music</a>
+            <a href="#calendar" class="nav-link" data-target="calendarPanel"><img src="calendarsvg.svg" width="24" height="24"></i><br>Calendar</a>
+            <a href="#Gift" class="nav-link" data-target="GiftPanel"><img src="Gift.svg" width="24" height="24" color="white"></i><br>Gift</a>
+            <a href="#location" class="nav-link" data-target="locationPanel"><img src="locationsvg.svg" width="24" height="24"></i><br>Location</a>
+            <a href="#contact" class="nav-link" data-target="contactPanel"><img src="contacts.svg" width="24" height="24"></i><br>Contact</a>
+            <a href="#rsvp" class="nav-link" data-target="rsvpPanel"><img src="RSVPsvg.svg" width="24" height="24"><br>RSVP</a>
+        </div>
+
+        <!-- Music Panel -->
+        <div class="panel" id="musicPanel">
+            <iframe id="musicVideo" width="100%" height="200" src="https://www.youtube.com/embed/Trjrj_fQnIM" title="Westlife -  Beautiful in white (Lyrics)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+
+        <div class="panel" id="GiftPanel">
+            <div class="Gift-items"><img src="UP.SVG" class="my-4" style="width: 35%;">
+            <strong style="font-size: 18px"><br><br>SALAM KAUT<br><br></strong>
+                <div class="Gift-name">Abdullah Abduljalil <br>MAYBANK</div>
+                <img src="copy.svg" class="account" alt="Add to Google Calendar" onclick="copyTextToClipboard('105104243187') " width="24" height="24">
+                    <span class="icon-text" onclick="copyTextToClipboard('105104243187') ">105104243187</span>
+                    <div class="QRpic">
+                        <img src="QR.jpg" class="my-4" style="max-width: 50%; display: block; margin: auto; " onclick="copyTextToClipboard('105104243187') ">
+                    </div>
+                    <p class="scan">Imbas Kod QR</p>
+            </div>
+
+        </div>
+
+        <!-- Calendar Panel -->
+        <div class="panel" id="calendarPanel">
+            <div class="calender-item">
+                <div class="calender-iteml">
+            <p><img src="cal-google.svg"  width="50" height="50" onclick="addToGoogleCalendar()"><br>Google Calendar</p>
+        </div>
+                <div class="calender-itemr"><p><img src="cal-apple.svg" class="calendar-icon" alt="Add to Calendar" onclick="downloadICS()"  width="50" height="50"><br>Apple Calendar</p>
+            </div>
+            
+        </div></div>
+    
+
+        <!-- Location Panel -->
+        <div class="panel" id="locationPanel">
+            <div class="Location-item">
+            <a href="https://maps.app.goo.gl/mtmmtuN8RPKdmi7u8" target="_blank"><img src="googleMap.svg"  width="100" height="100"></i></a>
+            <a href="https://waze.com/ul/hw283frctv" target="_blank"><img src="waze.svg"  width="100" height="100"></i></a>
+        </div>
+        </div>
+
+        <!-- Contact Panel -->
+        <div class="panel" id="contactPanel">      
+        <div class="contact-item">
+            <div class="contact-info">
+                <p class="contact-name">NurulJannah</p>
+                <p class="contact-role">The Bride</p>
+            </div>
+            <div class="contact-icons">
+                <a href="tel:+60126552109">
+                    <img src="phone-solid.svg" alt="Phone" width="20" height="20">
+                </a>
+                <a href="https://wa.me/60126552109" target="_blank">
+                    <img src="whatsapp.svg" alt="Phone" width="24" height="24">
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-info">
+                <p class="contact-name">Abdul Saheed</p>
+                <p class="contact-role">Baba</p>
+            </div>
+            <div class="contact-icons">
+                <a href="tel:+60126302838">
+                    <img src="phone-solid.svg" alt="Phone" width="20" height="20">
+                </a>
+                <a href="https://wa.me/60126302838" target="_blank">
+                    <img src="whatsapp.svg" alt="Phone" width="24" height="24">
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-info">
+                <p class="contact-name">Mahfuzah</p>
+                <p class="contact-role">Mama</p>
+            </div>
+            <div class="contact-icons">
+                <a href="tel:+60126302738">
+                    <img src="phone-solid.svg" alt="Phone" width="20" height="20">
+                </a>
+                <a href="https://wa.me/60126302738" target="_blank">
+                    <img src="whatsapp.svg" alt="Phone" width="24" height="24">
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-info">
+                <p class="contact-name">Abduallah Al-Arefi</p>
+                <p class="contact-role">The Groom</p>
+            </div>
+            <div class="contact-icons">
+                <a href="tel:+60182015103">
+                    <img src="phone-solid.svg" alt="Phone" width="20" height="20">
+                </a>
+                <a href="https://wa.me/60182015103" target="_blank">
+                    <img src="whatsapp.svg" alt="Phone" width="24" height="24">
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-info">
+                <p class="contact-name">Mateen</p>
+                <p class="contact-role">Brother</p>
+            </div>
+            <div class="contact-icons">
+                <a href="tel:+60126384142">
+                    <img src="phone-solid.svg" alt="Phone" width="20" height="20">                </a>
+                <a href="https://wa.me/60126384142" target="_blank">
+                    <img src="whatsapp.svg" alt="Phone" width="24" height="24">
+                </a>
+            </div>
+        </div>
+
+    </div>
+       <!-- RSVP Panel -->
+       <div class="panel panel-block" id="rsvpPanel">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7JOSKNXw61iyzi7wTHzZxTX3mSa0HsRC3Q46k111pBFDfSw/viewform?vc=0&c=0&w=1&flr=0&edit2=2_ABaOnud-p4zwvWQwSichW5d8DAschLeDiQml1vlARVc1eThUvIqxJevoCRjLAapziw" target="_blank"><img src="RSVPsvg.svg" alt="Phone" width="24" height="24">RSVP via Google Form</a>
+    </div>
+    </div>
+
+ 
+    <script>
+        function slideUp() {
+            document.getElementById("cover").classList.add("slide-up");
+        }
+    
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                document.querySelectorAll('.panel').forEach(panel => {
+                    panel.classList.remove('show', 'panel-flex', 'panel-block');
+                    panel.style.display = 'none';
+                });
+                const targetPanel = document.getElementById(target);
+                targetPanel.classList.add('show');
+                targetPanel.style.display = 'block';
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.navbar') && !event.target.closest('.panel')) {
+                document.querySelectorAll('.panel').forEach(panel => {
+                    panel.classList.remove('show', 'panel-flex', 'panel-block');
+                    panel.style.display = 'none';
+                });
+            }
+        });
+
+        function updateCountdown() {
+    const eventDate = new Date('2024-09-07T12:00:00');
+    const now = new Date();
+    const timeDifference = eventDate - now;
+
+    if (timeDifference > 0) {
+        const seconds = Math.floor((timeDifference / 1000) % 60);
+        const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
+        const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+        document.getElementById('countdown-timer').textContent = 
+            `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    } else {
+        document.getElementById('countdown-timer').textContent = 'The event has started!';
+    }
+}
+
+// Update the countdown every second
+setInterval(updateCountdown, 1000);
+
+// Initial call to display the countdown immediately when the page loads
+updateCountdown();
+
+function downloadICS() {
+            const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//Your Product//EN
+BEGIN:VEVENT
+UID:${new Date().getTime()}@yourdomain.com
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+DTSTART:20240907T030000Z
+DTEND:20240907T080000Z
+SUMMARY:Majlis Nikah Nurul & Abdullah
+DESCRIPTION: YoU hAvE tO bE tHeRe , love love
+LOCATION:TAMU Hotal
+END:VEVENT
+END:VCALENDAR
+            `.trim();
+
+            const blob = new Blob([icsContent], { type: 'text/calendar' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'event.ics';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function addToGoogleCalendar() {
+            const event = {
+                action: 'TEMPLATE',
+                text: 'Majlis Nikah Nurul & Abdullah',
+                dates: '20240907T030000Z/20240907T080000Z',
+                details: 'Event Details',
+                location: 'TAMU Hotel'
+            };
+
+            const baseUrl = 'https://calendar.google.com/calendar/render';
+            const queryString = new URLSearchParams(event).toString();
+            const url = `${baseUrl}?${queryString}`;
+
+            window.open(url, '_blank');
+        }
+        function copyTextToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Account number copied');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        function playVideo(target) {
+            if (target === 'musicPanel') {
+                const iframe = document.getElementById('musicVideo');
+                const src = iframe.src;
+                iframe.src = src + "?autoplay=1";
+            }
+        }
+
+            function showContent(language) {
+            var itineraries = document.querySelectorAll('.itinerary');
+            itineraries.forEach(function(itinerary) {
+                itinerary.classList.remove('active');
+            });
+            document.getElementById(language).classList.add('active');
+        }
+</script>
+
+    
+    
+
+    
+</body>
+</html>
