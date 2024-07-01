@@ -6,27 +6,31 @@
     <title>Abdullah & Nurul Akad Nikah</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* Base styles for all devices */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0; /* Background color for the extra space */
-            height: 100vh;
-            overflow: hidden; 
-        }
+       /* Base styles for all devices */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Background color for the extra space */
+    height: 100vh;
+    overflow: hidden; 
+}
 
-        .wrapper {
+.wrapper {
     display: block;
     flex-direction: column;
     width: 100%;
-    /*max-width: 400px;  Fixed width mimicking phone screen width */
-    background-color: white; /* Background color of the main content */
-    position: relative; /* For absolute positioning of panels */
-    overflow: hidden; /* To prevent overflow issues with absolute positioning */
-    height: 100vh; /* Ensure the wrapper fills the viewport height */
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    transition: transform 1s ease;
+}
+
+.wrapper.zoom-out {
+    transform: scale(0);
 }
 
 .container {
@@ -38,279 +42,312 @@
     height: calc(100vh - 56px); /* Subtract the height of the navbar */
     flex-direction: column; /* Ensure that elements stack vertically */
     text-align: center;
-    background: url('background.png') no-repeat center center;
+    background: url('background.png');
     background-size: cover; /* Ensures the background image covers the container */
 }
 
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            background-color: palevioletred;
-            width: 100%;
-            z-index: 20; /* Ensure navbar is on top */         
-        }
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: palevioletred;
+    width: 100%;
+    z-index: 20; /* Ensure navbar is on top */
+}
 
-        .navbar a {
-            flex: 1;
-            text-align: center;
-            padding: 14px 0;
-            text-decoration: none;
-            color: white;
-            font-size: 12px;
-            position: relative;
-        }
+.navbar a {
+    flex: 1;
+    text-align: center;
+    padding: 14px 0;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    position: relative;
+}
 
-        .navbar a .icon {
-            font-size: 16px;
-            color: white !important;   
-            fill: white;
-        }
+.navbar a .icon {
+    font-size: 16px;
+    color: white !important;   
+    fill: white;
+}
 
-        .navbar a .icon svg {
-            fill: white; /* Set the fill color to white */
-        }
+.navbar a .icon svg {
+    fill: white; /* Set the fill color to white */
+}
 
-        .navbar a:hover {
-            background-color: #575757;
-        }
+.navbar a:hover {
+    background-color: #575757;
+}
 
-        .panel {
-            display: none;
-            position: absolute;
-            bottom: 56px;
-            left: 0;
-            width: 90%;
-            padding-bottom: 100px;
-            line-height: 20px !important;
-            background-color: white;
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
-            padding: 20px;
-            z-index: 10;
-            overflow-y: auto;
-        }
+.panel {
+    display: none;
+    position: absolute;
+    bottom: 56px;
+    left: 0;
+    width: 90%; 
+    padding-bottom: 100px;
+    line-height: 20px !important;
+    background-color: white;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    padding: 20px;
+    z-index: 10;
+    overflow-y: auto;
+}
 
-        .panel-flex {
-            display: flex;
-            flex-direction: column;
-        }
+.panel-flex {
+    display: flex;
+    flex-direction: column;
+}
 
-        .panel-block {
-            display: block;
-        }
+.panel-block {
+    display: block;
+}
 
-        .panel iframe,
-        .panel a,
-        .panel p {
-            display: block;
-            margin-bottom: 10px;
-        }
+.panel iframe,
+.panel a,
+.panel p {
+    display: block;
+    margin-bottom: 10px;
+}
 
-        .panel a {
-            color: green;
-            text-decoration: underline;
-        }
+.panel a {
+    color: green;
+    text-decoration: underline;
+}
 
-        .panel .icon {
-            margin-right: 8px;
-        }
+.panel .icon {
+    margin-right: 8px;
+}
 
-        .Location-item{
+.Location-item {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5em;
+    
+}
 
-            display: flex;
-            padding: auto;
-            align-items: center;
-            text-align:auto ;
-            justify-content: space-between;
-            margin: 0.5em;
-           
+.location-iteml {
+    padding: auto;
+    align-items: center;
+    text-align: center;
+}
 
-        }
+.location-itemr {
+    padding: auto;
+    align-items: center;
+    text-align: center;
+}
+.calender-item {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5em;
+}
 
-        .calender-item{
+.calender-iteml {
+    padding: auto;
+    align-items: center;
+    text-align: center;
+}
 
-            display: flex;
-            padding: 10px;
-            align-items: center;
-            justify-content: space-between;
-            margin: 0.5em;
+.calender-itemr {
+    padding: auto;
+    align-items: center;
+    text-align: center;
+}
 
-        }
-        .calender-iteml{
-            padding: auto;
-            align-items: center;
-            text-align: center;
+.show {
+    display: inline-block;
+    animation: slideUp 0.5s ease-out;
+}
 
-        }
-
-        .calender-itemr{
-            padding: auto;
-            align-items: center;
-            text-align: center;
-
-        }
-
-
-        .show {
-            display: inline-block;
-            animation: slideUp 0.5s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        /* Mobile styles */
-        @media (max-width: 600px) {
-            .panel{
-                bottom: 0;
-            }
-            .navbar{
-                bottom: 0;
-            }
-            body {
-                background-color: lightblue;
-            }
-        }
-
-        /* Laptop styles */
-        @media (min-width: 601px) {
-            .wrapper{
-                max-width: 400px;
-            }
-            body {
-                background-color: #f0f0f0;
-            }
-        }
-
-        /* Picture cover styles */
-        .cover {
-            
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('card2.png') no-repeat center center;
-            background-size: cover;
-            z-index: 30; /* Ensure cover is on top */
-            display: block;
-            justify-content: center;
-            align-items: center;
-        
-        }
-        .cover-text{
-            padding: auto;
-            padding-top: 50%;
-            text-align: center;
-            color:  rgb(107, 118, 94);
-        }
-
-        .cover button {
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            background-color: rgba(211, 55, 204, 0.6);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            z-index: 31; /* Ensure button is on top */
-        }
-
-        .cover.slide-up {
-            animation: slideUpAndDisappear 1s forwards;
-        }
-
-        @keyframes slideUpAndDisappear {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-        }
-
-        .contact-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 0em;
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
     }
-
-    .contact-info {
-        flex-grow: 1;
+    to {
+        transform: translateY(0);
     }
+}
 
-    .contact-name {
-        font-weight: bold;
+/* Mobile styles */
+@media (max-width: 600px) {
+    .navbar {
+        bottom: 0;
+    }
+    
+    .panel {
+        bottom: 0;
+    }
+    
+    body {
+        background-color: lightblue;
+        width: 100%;
+        height: 100vh;
         margin: 0;
+        overflow-x: hidden;
     }
+}
 
-    .contact-role {
-        font-size: 0.9em;
-        color: gray;
-        margin: 0;
+/* Laptop styles */
+@media (min-width: 601px) {
+    .wrapper {
+        max-width: 400px;
     }
-
-    .contact-icons {
-        display: flex;
-        gap: 0.5em;
+    body {
+        background-color: #f0f0f0;
     }
+}
 
-    .contact-item a {
+/* Picture cover styles */
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('card2.png') no-repeat center center;
+    background-size: cover;
+    z-index: 30; /* Ensure cover is on top */
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover-text {
+    padding: auto;
+    padding-top: 50%;
+    text-align: center;
+    color: rgb(107, 118, 94);
+}
+
+.cover button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: rgba(211, 55, 204, 0.6);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    z-index: 31; /* Ensure button is on top */
+    margin-top: 30%;
+    
+}
+
+.cover.slide-up {
+    animation: slideUpAndDisappear 1s forwards;
+}
+
+@keyframes slideUpAndDisappear {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0em;
+}
+
+.contact-info {
+    flex-grow: 1;
+}
+
+.contact-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.contact-role {
+    font-size: 0.9em;
+    color: gray;
+    margin: 0;
+}
+
+.contact-icons {
+    display: flex;
+    gap: 0.5em;
+}
+
+.contact-item a {
     display: flex;
     align-items: center;
     gap: 1px;
     text-decoration: none;
     color: #333;
     margin-left: 0px; /* Adjust this value as needed */
-    }
-
-    .container::-webkit-scrollbar {
-        width: 0px;
-        background: transparent; /* Optional: Just to ensure the scroll bar is invisible */
-    }
-
-    .container {
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        scrollbar-width: none;  /* Firefox */
-    }
-
-    .container {
-        overflow-y: scroll; /* Keep scroll functionality */
-    }
-
-    .countdown-box {
-    border: 2px solid #333;
-    padding: 10px;
-    
-    margin-top: 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-    }
-
-    .greeting {
-    font-size: 20px;
-    font-family: Arial, sans-serif;
 }
 
-.names {
-    font-size: 24px;
+.container::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Optional: Just to ensure the scroll bar is invisible */
+}
+
+.container {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.container {
+    overflow-y: scroll; /* Keep scroll functionality */
+}
+
+.countdays {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.countdownd {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 18px;
+    justify-content: space-between;
+    font-family: 'Aceh';
+}
+
+.greeting {
+    font-size: 20px;
+    font-family: "Aceh";
+}
+
+.names, .gromparenrts {
+    font-size: 36px;
     font-family: 'YaquoteScript', serif;
 }
 
-.invitation {
-    font-size: 18px;
-    font-family: 'Courier New', monospace;
+.couple{
+    font-family: "Aceh";
+    font-size: 16px;
+    font-weight: bold;
 }
 
-/* Add more styles as needed for other classes */
+.date ,
+.time ,
+.venue-address,
+.venue-addressa,
+.appreciation,
+.venue-title,
+.greeting1,
+.greeting2,
+.invitation, 
+.invitation2 {
+
+font-family: "Aceh";
+font-size: 26spx;
+}
+
+
+
 @font-face {
     font-family: 'YaquoteScript';
     src: url('YaquoteScript.ttf') format('truetype');
@@ -320,113 +357,179 @@
     font-family: 'Aceh';
     src: url('Aceh.otf') format('truetype');
 }
+
 .names-text {
     font-size: 48px;
     font-family: 'YaquoteScript', serif;
 }
-.buttonIN{
-padding-left: 30%;
-padding-top: 30%;
+
+.buttonIN {
+    padding-left: 30%;
 }
 
-.greeting-text{
-
+.greeting-text {
     font-size: 20px;
     font-family: 'Aceh', serif;
 }
 
-.Gift-items{
+.Gift-items {
     text-align: center;
     align-items: center;
     padding: auto;
 }
 
 .card2 {
-            position: relative;
-            width: 100%;
-            max-width: 600px; /* Adjust as needed */
-            margin: auto;
-        }
-        .pictureGo {
-            width: 100%;
-            display: block;
-        }
-        .back-text, .names-card, .invitation-card {
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            color: rgb(107, 118, 94); /* Change text color if needed */
-        }
-        .back-text {
-            top: 30%;
-            font-size: 2em; /* Adjust as needed */
-            font-weight: bold;
-            padding: auto;
-        }
-        .names-card {
-            top: 45%;
-            font-family: 'YaquoteScript', serif;
-            font-size: 1.5em; /* Adjust as needed */
-            padding: auto;
-        }
-        .invitation-card {
-            top: 60%;
-            font-size: 1em; /* Adjust as needed */
-            padding: auto;
-        }
-        .malay-V{
-            padding-left: 20px;
-            padding-right: 20px;
-        }
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: auto;
+}
 
-        .buttons {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            gap: 0;
-        }
-        .buttons button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            outline: none;
-            background-color: #c29cd2; /* Change color as needed */
-        }
-        .buttons button:first-child {
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
-        }
-        .buttons button:last-child {
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
-        .buttons button:nth-child(2) {
-            border-radius: 0;
-        }
-        .itinerary {
-            display: none;
-        }
-        .itinerary.active {
-            display: block;
-        }
-        .my-4 {
-            margin: 1.5rem 0;
-        }
-        .handwrite12 {
-            font-family: 'Cursive', sans-serif; /* Update with the appropriate font */
-        }
-        .sec-title {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .venue-title, .itinerary-title, .attire-title {
-            margin-bottom: 1rem;
-        }
-        .venue-address, .itinerary-item, .itinerary-time, .attire-description, .hashtag {
-            font-size: 18px;
-        }
+.pictureGo {
+    width: 100%;
+    display: block;
+}
 
+.back-text,
+.names-card,
+.invitation-card {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: rgb(107, 118, 94); /* Change text color if needed */
+}
+
+.back-text {
+    top: 30%;
+    font-size: 2em; /* Adjust as needed */
+    font-weight: bold;
+    padding: auto;
+}
+
+.names-card {
+    top: 45%;
+    font-family: 'YaquoteScript', serif;
+    font-size: 1.5em; /* Adjust as needed */
+    padding: auto;
+}
+
+.invitation-card {
+    top: 60%;
+    font-size: 1em; /* Adjust as needed */
+    padding: auto;
+}
+
+.malay-V {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.buttons {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #c29cd2; /* Change color as needed */
+}
+
+.buttons button:first-child {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.buttons button:last-child {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.buttons button:nth-child(2) {
+    border-radius: 0;
+}
+
+.itinerary {
+    display: none;
+}
+
+.itinerary.active {
+    display: block;
+}
+
+.my-4 {
+    margin: 1.5rem 0;
+}
+
+
+
+.sec-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.venue-title,
+.itinerary-title,
+.attire-title {
+    margin-bottom: 1rem;
+}
+
+.itinerary-item,
+.itinerary-time,
+.attire-description,
+.hashtag {
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+.rsvp-items{
+	width: 80%;
+	padding:10%;
+	border: 1px solid #eeeeee;
+	background-color: plum;
+    font-family: 'aceh';
+    align-items: center;
+    text-align: center;
+}
+h4{
+	margin-bottom: 10px;
+	font-size: 24px;
+	color: white;
+}
+input{
+	width: 100%;
+	padding: 3px;
+	margin-bottom: 10px;
+}
+textarea{
+	width: 100%;
+	padding: 3px;
+}
+.select{
+    width:100%
+    
+}
+#submit{
+	border: none;
+	background-color: palevioletred;
+	color: white;
+	width: 40%;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+#submit:hover{
+	background-color: #333333;
+}
     </style>
 </head>
 <body>
@@ -461,96 +564,76 @@ padding-top: 30%;
             
             <div id="malay" class="itinerary active">
                 <div class="malay-V">
-                    <p class="greeting">Assalamualaikum W.B.T & Salam Sejahtera</p>
-                    <p class="names">Abdul Saheed <br>& <br> Mahfuzah</p>
-                    <p class="invitation">Dengan segala hormatnya kami menjemput <br>Tan Sri | Puan Sri | Dato' | Datin | Tuan | Puan | Encik | Cik <br>hadir ke majlis nikah puteri kami</p>
-                    <p class="couple">NURULJANNAH BINTI ABDUL SAHEED<br>& <br>ABDULLAH ABDULJALIL AL-AREFI</p>
+   
+                    <p class="greeting1">Bismillahirrahmanirrahim</p>
+                    <p class="names">Abdul Saheed<br>dan <br>Mahfuzah Abdul Rahman</p>
+                    <p class="invitation">Dengan penuh kesyukuran kepada Allah SWT, kami dengan ini mempelawa ke hadrat Tan Sri/Puan Sri/Dato/Datin/Tuan/Puan/Encik/Cik untuk menyertai majlis nikah anak kesayangan kami</p>
+                    <p class="couple">NURUL JANNAH BINTI ABDUL SAHEED<br>Dengan<br>ABDULLAH ABDULJALIL AL-AREFI</p>
+                    <p class="invitation2">Anak kepada :</p>
+                    <p class="gromparenrts">Abduljalil Al-Arefi<br>&<br> Jamilah Al-Arefi</p>
                     <img src="UP.SVG" class="my-4" style="width: 35%;">
-                    <p class="date">Sabtu <br> 07 September 2024</p>
+                    <p class="date">Tarikh: Sabtu, 07 September 2024</p>
+                    <p class="time">Waktu: 11.00 am</p>
+                    <p class="venue-address">Tempat: TAMU Hotel & Suites</p>
+                    <p class="venue-addressa">120 Jalan Raja Abdullah<br>Kampong Bharu<br>50300, Kuala Lumpur</p>
                     <img src="down.SVG" class="my-4" style="width: 35%;">
-                    <p id="txt_venue" class="mb-1 handwrite12 sec-title venue-title">LOKASI MAJLIS</p>
-                    <p class="ql-address mb-0 venue-address"><span style="font-size: 18px;">Tamu Hotel</span></p>
-                    <p id="txt_itinerary" class="mb-1 handwrite12 sec-title itinerary-title">ATUR CARA MAJLIS</p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Ketibaan Tetamu:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:15 pagi - 10:30 pagi</span></p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Majlis Akad Nikah:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:30 pagi - 11:40 pagi</span></p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Jamuan Makan:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">12:00 tgh hari - 2:30 petang</span></p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Penutup:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">2:30 petang</span></p>
-                        <p class="ql-align-center hashtag"><strong style="font-size: 18px;">#JannahAbode</strong></p>
-                        <p class="ql-align-center attire-title"><strong style="font-size: 20px;">Pakaian</strong><span style="font-size: 20px;">:</p>
-                        <p class="ql-align-center attire-description"><span style="font-size: 18px;">Traditional/ BlackTie/ Formal Suit</span></p>
-                        <p class="ql-align-center hashtag"><br></p>
+                    <p class="appreciation">Sebagai tanda terima kasih, mohon kehadiran dan doa restu dari Tuan/Puan sekeluarga.</p>
+
                 </div>
             </div>
             
             <div id="english" class="itinerary">
                 <div class="english-V">
-                    <p class="greeting">Peace be upon you & Greetings</p>
-                    <p class="names">Abdul Saheed <br>& <br> Mahfuzah</p>
-                    <p class="invitation">We respectfully invite<br>Tan Sri | Puan Sri | Dato' | Datin | Mr | Mrs | Ms <br>to attend the wedding ceremony of our daughter</p>
-                    <p class="couple">NURULJANNAH BINTI ABDUL SAHEED<br>& <br>ABDULLAH ABDULJALIL AL-AREFI</p>
+                    <p class="greeting2">In the name of God, the Most Gracious, the Most Merciful</p>
+                    <p class="names">Abdul Saheed<br>&<br>Mahfuzah Abdul Rahman</p>
+                    <p class="invitation">Dengan penuh kesyukuran kepada Allah SWT, kami dengan ini mempelawa ke hadrat Tan Sri/Puan Sri/Dato/Datin/Tuan/Puan/Encik/Cik untuk menyertai majlis nikah anak kesayangan kami</p>
+                    <p class="couple">NURUL JANNAH BINTI ABDUL SAHEED<br>With<br>ABDULLAH ABDULJALIL AL-AREFI</p>
+                    <p class="invitation2">son of :</p>
+                    <p class="gromparenrts">Abduljalil Al-Arefi<br>&<br> Jamilah Al-Arefi</p>
                     <img src="UP.SVG" class="my-4" style="width: 35%;">
-                    <p class="date">Saturday <br> 07 September 2024</p>
+                    <p class="date">Date: Saturday, 07 September 2024</p>
+                    <p class="time">Time: 11.00 am</p>
+                    <p class="venue-title">Venue</p>
+                    <p class="venue-address">TAMU Hotel & Suites</p>
+                    <p class="venue-addressa">120 Jalan Raja Abdullah<br>Kampong Bharu<br>50300, Kuala Lumpur</p>
                     <img src="down.SVG" class="my-4" style="width: 35%;">
-                    <p id="txt_venue" class="mb-1 handwrite12 sec-title venue-title">VENUE</p>
-                    <p class="ql-address mb-0 venue-address"><span style="font-size: 18px;">Tamu Hotel</span></p>
-                    <p id="txt_itinerary" class="mb-1 handwrite12 sec-title itinerary-title">ITINERARY</p>
-                    
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Guest Arrival:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:15 AM - 10:30 AM</span></p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Wedding Ceremony:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:30 AM - 11:40 AM</span></p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Lunch:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">12:00 PM - 2:30 PM</span></p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">Closing:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">2:30 PM</span></p>
-                    
-                        <p class="ql-align-center attire-title"><strong style="font-size: 20px;">Attire</strong><span style="font-size: 20px;">:</span></p>
-                        <p class="ql-align-center attire-description"><span style="font-size: 18px;">Traditional/ BlackTie/ Formal Suit</span></p>
-                        <p class="ql-align-center hashtag"><br></p>
-                        <p class="ql-align-center hashtag"><strong style="font-size: 18px;">#JannahAbode</strong></p>
-                    
-                   
-                        <p class="ql-align-center attire-title"><strong style="font-size: 20px;">Attire</strong><span style="font-size: 20px;">:</p>
-                        <p class="ql-align-center attire-description"><span style="font-size: 18px;">Traditional/ BlackTie/ Formal Suit</span></p>
-                        <p class="ql-align-center hashtag"><br></p>
+                    <p class="appreciation">Your presence and blessings are sincerely appreciated.</p>
                     
                 </div>
             </div>
             
             <div id="arabic" class="itinerary">
                 <div class="arabic-V">
-                    <p class="greeting">السلام عليكم ورحمة الله وبركاته</p>
-                    <p class="names">عبدالشهيد <br>& <br> محفوظة</p>
-                    <p class="invitation">نتشرف بدعوتكم <br>حضر السيد | السيدة | الأستاذ | الأستاذة <br>لحضور حفل زفاف ابنتنا</p>
-                    <p class="couple">نورالجنة بنت عبدالشهيد<br>& <br>عبدالله عبدالجليل العريفي</p>
+                    <p class="greeting2">بسم الله الرحمن الرحيم</p>
+                    <p class="names">عبدالشهيد<br>&<br>محفوظة عبد الرحمن</p>
+                    <p class="invitation">بكل الامتنان لله سبحانه وتعالى، ندعو السيد/السيدة/الأستاذ/الآنسة لحضور حفل زفاف ابنتنا العزيزة</p>
+                    <p class="couple">نور الجنة بنت عبدالشهيد<br>مع<br>عبد الله عبد الجليل العريفي</p>
+                    <p class="invitation2">ابن:</p>
+                    <p class="gromparenrts">عبد الجليل العريفي<br>&<br>جميلة العريفي</p>
                     <img src="UP.SVG" class="my-4" style="width: 35%;">
-                    <p class="date">السبت <br> 07 سبتمبر 2024</p>
+                    <p class="date">التاريخ: السبت، 7 سبتمبر 2024</p>
+                    <p class="time">الوقت: 11:00 صباحاً</p>
+                    <p class="venue-title">المكان</p>
+                    <p class="venue-address">فندق وأجنحة تامو</p>
+                    <p class="venue-addressa">120 Jalan Raja Abdullah<br>Kampong Bharu<br>50300, Kuala Lumpur</p>
                     <img src="down.SVG" class="my-4" style="width: 35%;">
-                    <p id="txt_venue" class="mb-1 handwrite12 sec-title venue-title">مكان الحفل</p>
-                    <p class="ql-address mb-0 venue-address"><span style="font-size: 18px;">فندق تامو</span></p>
-                    <p id="txt_itinerary" class="mb-1 handwrite12 sec-title itinerary-title">جدول الحفل</p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">وصول الضيوف:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:15 صباحًا - 10:30 صباحًا</span></p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">حفل الزفاف:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">10:30 صباحًا - 11:40 صباحًا</span></p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">وجبة الغداء:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">12:00 ظهرًا - 2:30 مساءً</span></p>
-                        <p class="ql-align-center itinerary-item"><strong style="font-size: 18px;">الختام:</strong></p>
-                        <p class="ql-align-center itinerary-time"><span style="font-size: 18px;">2:30 مساءً</span></p>
-                        <p class="ql-align-center attire-title"><strong style="font-size: 20px;">الملابس</strong><span style="font-size: 20px;">:</span></p>
-                        <p class="ql-align-center attire-description"><span style="font-size: 18px;">تقليدية/ ربطة عنق سوداء/ بدلة رسمية</span></p>
-                        <p class="ql-align-center hashtag"><br></p>
-                        <p class="ql-align-center hashtag"><strong style="font-size: 18px;">#JannahAbode</strong></p>
+                    <p class="appreciation">حضوركم ومباركتكم محل تقديرنا العميق.</p>
                 </div>
             </div>
             <!-- Countdown timer element -->
-            <div class="countdown-box">
-                <p class="ql-align-center countdown-title"><strong style="font-size: 18px;">Countdown to the Event:</strong></p>
-                <p class="ql-align-center countdown-timer" id="countdown-timer" style="font-size: 18px;"></p>
+            <div class="countdownd">
+                <div class="countdays">
+                    <p id="days" class="countdown-item"></p>
+                </div>
+                <div class="countdays">
+                    <p id="hours" class="countdown-item"></p>
+                </div>
+                <div class="countdays">
+                    <p id="minutes" class="countdown-item"></p>
+                </div>
+                <div class="countdays">
+                    <p id="seconds" class="countdown-item"></p>
+                </div>
             </div>
         
         </div>
@@ -571,15 +654,15 @@ padding-top: 30%;
 
 
         <div class="panel" id="GiftPanel">
-            <div class="Gift-items"><img src="UP.SVG" class="my-4" style="width: 35%;">
-            <strong style="font-size: 18px"><br><br>SALAM KAUT<br><br></strong>
-                <div class="Gift-name">Abdullah Abduljalil <br>MAYBANK</div>
+            <div class="Gift-items"><img src="UP.SVG" style="width: 35%;">
+            <strong style="font-size: 18px"><br>SALAM KAUT<br></strong>
+                <div class="Gift-name">Abdul Saheed <br>MAYBANK</div>
                 <img src="copy.svg" class="account" alt="Add to Google Calendar" onclick="copyTextToClipboard('105104243187') " width="24" height="24">
                     <span class="icon-text" onclick="copyTextToClipboard('105104243187') ">105104243187</span>
                     <div class="QRpic">
                         <img src="QR.jpg" class="my-4" style="max-width: 50%; display: block; margin: auto; " onclick="copyTextToClipboard('105104243187') ">
                     </div>
-                    <p class="scan">Imbas Kod QR</p>
+                    <p class="scan">scan QR</p>
             </div>
 
         </div>
@@ -589,19 +672,23 @@ padding-top: 30%;
             <div class="calender-item">
                 <div class="calender-iteml">
             <p><img src="cal-google.svg"  width="50" height="50" onclick="addToGoogleCalendar()"><br>Google Calendar</p>
-        </div>
+                </div>
                 <div class="calender-itemr"><p><img src="cal-apple.svg" class="calendar-icon" alt="Add to Calendar" onclick="downloadICS()"  width="50" height="50"><br>Apple Calendar</p>
+                </div>
             </div>
-            
-        </div></div>
+        </div>
     
 
         <!-- Location Panel -->
         <div class="panel" id="locationPanel">
             <div class="Location-item">
-            <a href="https://maps.app.goo.gl/mtmmtuN8RPKdmi7u8" target="_blank"><img src="googleMap.svg"  width="100" height="100"></i></a>
-            <a href="https://waze.com/ul/hw283frctv" target="_blank"><img src="waze.svg"  width="100" height="100"></i></a>
-        </div>
+                <div class="Location-iteml" onclick="openLink('https://maps.app.goo.gl/mtmmtuN8RPKdmi7u8')">
+                    <p><img src="googleMap.svg" width="50" height="50"><br>Use Google Maps</p>
+            </div>
+                <div class="Location-itemr" onclick="openLink('https://waze.com/ul/hw283frctv')">
+                    <p><img src="waze.svg" width="50" height="50"><br>Use Waze</p>
+                </div>
+            </div>
         </div>
 
         <!-- Contact Panel -->
@@ -683,9 +770,26 @@ padding-top: 30%;
     </div>
        <!-- RSVP Panel -->
        <div class="panel panel-block" id="rsvpPanel">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7JOSKNXw61iyzi7wTHzZxTX3mSa0HsRC3Q46k111pBFDfSw/viewform?vc=0&c=0&w=1&flr=0&edit2=2_ABaOnud-p4zwvWQwSichW5d8DAschLeDiQml1vlARVc1eThUvIqxJevoCRjLAapziw" target="_blank"><img src="RSVPsvg.svg" alt="Phone" width="24" height="24">RSVP via Google Form</a>
+        <div class="rsvp-itemsd">
+            <div class="rsvp-items">
+            <form method="post" action="https://script.google.com/macros/s/AKfycbxoQoBotSD3NWP4f76mdTTzxUx_RYV2HxerGq0e7L35To9GCccAS0W16Akty4rUdEohZw/exec" name="contact-form">
+                <h4>RSVP</h4>
+                <input type="text" name="your-name" placeholder="Your Name">
+                <input type="number" name="your-number" placeholder="Phone Number">
+                <select name="your-email" required>
+                    <option value="">People coming</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="2">3</option>
+                    <option value="3">4</option>
+                    <option value="5">5</option>
+                </select>
+                <textarea name="message" rows="7" placeholder="Your Message"></textarea>
+                <input type="submit" value="Submit" id="submit">
+            </form>
+        </div>
     </div>
-    </div>
+       </div>
 
  
     <script>
@@ -726,10 +830,12 @@ padding-top: 30%;
         const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
         const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
-        document.getElementById('countdown-timer').textContent = 
-            `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+        document.getElementById('days').innerHTML = `${days}<br>Hari`;
+        document.getElementById('hours').innerHTML = `${hours}<br>Jam`;
+        document.getElementById('minutes').innerHTML = `${minutes}<br>Minit`;
+        document.getElementById('seconds').innerHTML = `${seconds}<br>Saat`;
     } else {
-        document.getElementById('countdown-timer').textContent = 'The event has started!';
+        document.querySelector('.countdownd').innerHTML = 'The event has started!';
     }
 }
 
@@ -738,6 +844,7 @@ setInterval(updateCountdown, 1000);
 
 // Initial call to display the countdown immediately when the page loads
 updateCountdown();
+
 
 function downloadICS() {
             const icsContent = `
@@ -766,21 +873,29 @@ END:VCALENDAR
             document.body.removeChild(a);
         }
 
-        function addToGoogleCalendar() {
-            const event = {
-                action: 'TEMPLATE',
-                text: 'Majlis Nikah Nurul & Abdullah',
-                dates: '20240907T030000Z/20240907T080000Z',
-                details: 'Event Details',
-                location: 'TAMU Hotel'
-            };
+        function addToAndroidCalendar() {
+    const title = 'Majlis Nikah Nurul & Abdullah';
+    const location = 'TAMU Hotel';
+    const details = 'Event Details';
+    const startDate = new Date('2024-09-07T03:00:00Z');
+    const endDate = new Date('2024-09-07T08:00:00Z');
 
-            const baseUrl = 'https://calendar.google.com/calendar/render';
-            const queryString = new URLSearchParams(event).toString();
-            const url = `${baseUrl}?${queryString}`;
+    const startMillis = startDate.getTime();
+    const endMillis = endDate.getTime();
 
-            window.open(url, '_blank');
-        }
+    const androidCalendarURL = `intent://com.google.android.calendar/event?action=VIEW&title=${encodeURIComponent(title)}&description=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&beginTime=${startMillis}&endTime=${endMillis}#Intent;scheme=http;package=com.google.android.calendar;end`;
+
+    window.open(androidCalendarURL);
+}
+
+
+        function setFullHeight() {
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+
+window.addEventListener('resize', setFullHeight);
+window.addEventListener('load', setFullHeight);
+
         function copyTextToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 alert('Account number copied');
@@ -804,6 +919,15 @@ END:VCALENDAR
             });
             document.getElementById(language).classList.add('active');
         }
+        function openLink(url) {
+    window.open(url, '_blank');
+}
+
+setTimeout(function() {
+            document.getElementById('myWrapper').classList.add('zoom-out');
+        }, 1000); // Trigger after 1 second (adjust timing as needed)
+
+    </script>
 </script>
 
     
