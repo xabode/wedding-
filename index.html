@@ -6,9 +6,14 @@
     <title>Abdullah & Nurul Akad Nikah</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-       /* Base styles for all devices */
-body {
+  /* Base styles for all devices */
+*{
+    padding: 0;
     margin: 0;
+    border-width: 0;
+}
+body {
+   
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -25,8 +30,9 @@ body {
     background-color: white;
     position: relative;
     overflow: hidden;
-    height: 100vh;
+    height: 100%;
     transition: transform 1s ease;
+    
 }
 
 .wrapper.zoom-out {
@@ -43,15 +49,20 @@ body {
     flex-direction: column; /* Ensure that elements stack vertically */
     text-align: center;
     background: url('background.png');
-    background-size: cover; /* Ensures the background image covers the container */
+    background-size: cover;
+    top: 0; /* Ensures the background image covers the container */
 }
 
 .navbar {
+
     display: flex;
     justify-content: space-around;
     background-color: palevioletred;
     width: 100%;
-    z-index: 20; /* Ensure navbar is on top */
+    z-index: 20;
+    position: fixed;
+    bottom: 0;
+    height: 56px;
 }
 
 .navbar a {
@@ -79,44 +90,22 @@ body {
 }
 
 .panel {
-    display: none;
+    
     position: absolute;
-    bottom: 56px;
-    left: 0;
-    width: 90%; 
-    padding-bottom: 100px;
-    line-height: 20px !important;
+    bottom:0;
     background-color: white;
     box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
-    padding: 20px;
-    z-index: 10;
     overflow-y: auto;
+    margin-bottom: 56px;
+    display: none; /* Hide all panels by default */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.panel-flex {
-    display: flex;
-    flex-direction: column;
-}
 
-.panel-block {
-    display: block;
-}
 
-.panel iframe,
-.panel a,
-.panel p {
-    display: block;
-    margin-bottom: 10px;
-}
 
-.panel a {
-    color: green;
-    text-decoration: underline;
-}
-
-.panel .icon {
-    margin-right: 8px;
-}
 
 .Location-item {
     display: flex;
@@ -124,6 +113,7 @@ body {
     align-items: center;
     justify-content: space-between;
     margin: 0.5em;
+    
     
 }
 
@@ -144,6 +134,7 @@ body {
     align-items: center;
     justify-content: space-between;
     margin: 0.5em;
+    width: body;
 }
 
 .calender-iteml {
@@ -158,10 +149,7 @@ body {
     text-align: center;
 }
 
-.show {
-    display: inline-block;
-    animation: slideUp 0.5s ease-out;
-}
+
 
 @keyframes slideUp {
     from {
@@ -177,26 +165,40 @@ body {
     .navbar {
         bottom: 0;
     }
-    
-    .panel {
-        bottom: 0;
+
+    .panel{
+        margin-bottom:120px;
     }
     
-    body {
+  
+    
+    .body {
         background-color: lightblue;
         width: 100%;
         height: 100vh;
         margin: 0;
         overflow-x: hidden;
+
     }
+
+    .container{
+        height: calc(100vh - 120px);
+        margin-bottom: 120px;
+        top: 1;
+    }
+    
+   
 }
 
 /* Laptop styles */
 @media (min-width: 601px) {
+    .navbar {
+        width: 400px;
+    }
     .wrapper {
         max-width: 400px;
     }
-    body {
+    .body {
         background-color: #f0f0f0;
     }
 }
@@ -255,7 +257,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0em;
+    margin-bottom: 1em;
 }
 
 .contact-info {
@@ -376,13 +378,14 @@ font-size: 26spx;
     text-align: center;
     align-items: center;
     padding: auto;
+    width: 100%;
 }
 
 .card2 {
     position: relative;
     width: 100%;
-    max-width: 600px; /* Adjust as needed */
-    margin: auto;
+    max-width: body; /* Adjust as needed */
+    
 }
 
 .pictureGo {
@@ -396,7 +399,8 @@ font-size: 26spx;
     position: absolute;
     width: 100%;
     text-align: center;
-    color: rgb(107, 118, 94); /* Change text color if needed */
+    color: rgb(107, 118, 94); 
+    font-size: 36px;
 }
 
 .back-text {
@@ -409,7 +413,7 @@ font-size: 26spx;
 .names-card {
     top: 45%;
     font-family: 'YaquoteScript', serif;
-    font-size: 1.5em; /* Adjust as needed */
+    font-size: 36px; /* Adjust as needed */
     padding: auto;
 }
 
@@ -417,11 +421,23 @@ font-size: 26spx;
     top: 60%;
     font-size: 1em; /* Adjust as needed */
     padding: auto;
+    margin-top: 25px;
 }
 
 .malay-V {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.english-V{
+
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.arabic-V{
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .buttons {
@@ -501,35 +517,34 @@ font-size: 26spx;
     align-items: center;
     text-align: center;
 }
-h4{
-	margin-bottom: 10px;
-	font-size: 24px;
-	color: white;
+h4 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: white;
 }
-input{
-	width: 100%;
-	padding: 3px;
-	margin-bottom: 10px;
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-textarea{
-	width: 100%;
-	padding: 3px;
-}
-.select{
-    width:100%
-    
-}
+
+
 #submit{
 	border: none;
 	background-color: palevioletred;
 	color: white;
-	width: 40%;
+	width: 200px;
 	margin-top: 10px;
 	border-radius: 5px;
 }
 #submit:hover{
 	background-color: #333333;
+
 }
+
+
     </style>
 </head>
 <body>
@@ -564,7 +579,6 @@ textarea{
             
             <div id="malay" class="itinerary active">
                 <div class="malay-V">
-   
                     <p class="greeting1">Bismillahirrahmanirrahim</p>
                     <p class="names">Abdul Saheed<br>dan <br>Mahfuzah Abdul Rahman</p>
                     <p class="invitation">Dengan penuh kesyukuran kepada Allah SWT, kami dengan ini mempelawa ke hadrat Tan Sri/Puan Sri/Dato/Datin/Tuan/Puan/Encik/Cik untuk menyertai majlis nikah anak kesayangan kami</p>
@@ -578,7 +592,7 @@ textarea{
                     <p class="venue-addressa">120 Jalan Raja Abdullah<br>Kampong Bharu<br>50300, Kuala Lumpur</p>
                     <img src="down.SVG" class="my-4" style="width: 35%;">
                     <p class="appreciation">Sebagai tanda terima kasih, mohon kehadiran dan doa restu dari Tuan/Puan sekeluarga.</p>
-
+                    
                 </div>
             </div>
             
@@ -586,15 +600,14 @@ textarea{
                 <div class="english-V">
                     <p class="greeting2">In the name of God, the Most Gracious, the Most Merciful</p>
                     <p class="names">Abdul Saheed<br>&<br>Mahfuzah Abdul Rahman</p>
-                    <p class="invitation">Dengan penuh kesyukuran kepada Allah SWT, kami dengan ini mempelawa ke hadrat Tan Sri/Puan Sri/Dato/Datin/Tuan/Puan/Encik/Cik untuk menyertai majlis nikah anak kesayangan kami</p>
+                    <p class="invitation">With gratitude to Allah SWT, we request the honour of your presence at the Nikah Ceremony of our only daughter</p>
                     <p class="couple">NURUL JANNAH BINTI ABDUL SAHEED<br>With<br>ABDULLAH ABDULJALIL AL-AREFI</p>
                     <p class="invitation2">son of :</p>
                     <p class="gromparenrts">Abduljalil Al-Arefi<br>&<br> Jamilah Al-Arefi</p>
                     <img src="UP.SVG" class="my-4" style="width: 35%;">
                     <p class="date">Date: Saturday, 07 September 2024</p>
                     <p class="time">Time: 11.00 am</p>
-                    <p class="venue-title">Venue</p>
-                    <p class="venue-address">TAMU Hotel & Suites</p>
+                    <p class="venue-address">Venue:TAMU Hotel & Suites</p>
                     <p class="venue-addressa">120 Jalan Raja Abdullah<br>Kampong Bharu<br>50300, Kuala Lumpur</p>
                     <img src="down.SVG" class="my-4" style="width: 35%;">
                     <p class="appreciation">Your presence and blessings are sincerely appreciated.</p>
@@ -614,10 +627,11 @@ textarea{
                     <p class="date">التاريخ: السبت، 7 سبتمبر 2024</p>
                     <p class="time">الوقت: 11:00 صباحاً</p>
                     <p class="venue-title">المكان</p>
-                    <p class="venue-address">فندق وأجنحة تامو</p>
+                    <p class="venue-address">المكان: فندق وأجنحة تامو</p>
                     <p class="venue-addressa">120 Jalan Raja Abdullah<br>Kampong Bharu<br>50300, Kuala Lumpur</p>
                     <img src="down.SVG" class="my-4" style="width: 35%;">
                     <p class="appreciation">حضوركم ومباركتكم محل تقديرنا العميق.</p>
+                    
                 </div>
             </div>
             <!-- Countdown timer element -->
@@ -634,6 +648,7 @@ textarea{
                 <div class="countdays">
                     <p id="seconds" class="countdown-item"></p>
                 </div>
+                <p class="br"><br><br><br><br></p>
             </div>
         
         </div>
@@ -649,11 +664,12 @@ textarea{
 
         <!-- Music Panel -->
         <div class="panel" id="musicPanel">
-            <iframe id="musicVideo" width="100%" height="200" src="https://www.youtube.com/embed/Trjrj_fQnIM" title="Westlife -  Beautiful in white (Lyrics)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe id="musicPane" width="100%" height="200" src="https://www.youtube.com/embed/GRbwRW0NUlE?si=e4qTV-6cu5tV3Dye&amp;start=17" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
 
         <div class="panel" id="GiftPanel">
+
             <div class="Gift-items"><img src="UP.SVG" style="width: 35%;">
             <strong style="font-size: 18px"><br>SALAM KAUT<br></strong>
                 <div class="Gift-name">Abdul Saheed <br>MAYBANK</div>
@@ -769,7 +785,7 @@ textarea{
 
     </div>
        <!-- RSVP Panel -->
-       <div class="panel panel-block" id="rsvpPanel">
+       <div class="panel" id="rsvpPanel">
         <div class="rsvp-itemsd">
             <div class="rsvp-items">
             <form method="post" action="https://script.google.com/macros/s/AKfycbxoQoBotSD3NWP4f76mdTTzxUx_RYV2HxerGq0e7L35To9GCccAS0W16Akty4rUdEohZw/exec" name="contact-form">
@@ -780,8 +796,8 @@ textarea{
                     <option value="">People coming</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
-                    <option value="2">3</option>
-                    <option value="3">4</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
                 <textarea name="message" rows="7" placeholder="Your Message"></textarea>
@@ -791,17 +807,35 @@ textarea{
     </div>
        </div>
 
+
+    </div>
+
  
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function handleResize() {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+            window.addEventListener('resize', handleResize);
+            handleResize();
+        });
+        
         function slideUp() {
+            // Slide up animation
             document.getElementById("cover").classList.add("slide-up");
+
+            // Play the YouTube video
+            const iframe = document.getElementById('musicPane');
+            const src = iframe.src;
+            iframe.src = src.includes('?') ? src + "&autoplay=1" : src + "?autoplay=1";
         }
-    
+        
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
                 const target = this.getAttribute('data-target');
                 document.querySelectorAll('.panel').forEach(panel => {
-                    panel.classList.remove('show', 'panel-flex', 'panel-block');
+                    panel.classList.remove('show');
                     panel.style.display = 'none';
                 });
                 const targetPanel = document.getElementById(target);
@@ -809,7 +843,7 @@ textarea{
                 targetPanel.style.display = 'block';
             });
         });
-
+        
         document.addEventListener('click', function(event) {
             if (!event.target.closest('.navbar') && !event.target.closest('.panel')) {
                 document.querySelectorAll('.panel').forEach(panel => {
@@ -818,51 +852,50 @@ textarea{
                 });
             }
         });
-
+        
         function updateCountdown() {
-    const eventDate = new Date('2024-09-07T12:00:00');
-    const now = new Date();
-    const timeDifference = eventDate - now;
-
-    if (timeDifference > 0) {
-        const seconds = Math.floor((timeDifference / 1000) % 60);
-        const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
-        const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
-        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-
-        document.getElementById('days').innerHTML = `${days}<br>Hari`;
-        document.getElementById('hours').innerHTML = `${hours}<br>Jam`;
-        document.getElementById('minutes').innerHTML = `${minutes}<br>Minit`;
-        document.getElementById('seconds').innerHTML = `${seconds}<br>Saat`;
-    } else {
-        document.querySelector('.countdownd').innerHTML = 'The event has started!';
-    }
-}
-
-// Update the countdown every second
-setInterval(updateCountdown, 1000);
-
-// Initial call to display the countdown immediately when the page loads
-updateCountdown();
-
-
-function downloadICS() {
+            const eventDate = new Date('2024-09-07T12:00:00');
+            const now = new Date();
+            const timeDifference = eventDate - now;
+        
+            if (timeDifference > 0) {
+                const seconds = Math.floor((timeDifference / 1000) % 60);
+                const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
+                const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        
+                document.getElementById('days').innerHTML = `${days}<br>Hari`;
+                document.getElementById('hours').innerHTML = `${hours}<br>Jam`;
+                document.getElementById('minutes').innerHTML = `${minutes}<br>Minit`;
+                document.getElementById('seconds').innerHTML = `${seconds}<br>Saat`;
+            } else {
+                document.querySelector('.countdownd').innerHTML = 'The event has started!';
+            }
+        }
+        
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+        
+        // Initial call to display the countdown immediately when the page loads
+        updateCountdown();
+        
+        function downloadICS() {
             const icsContent = `
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Your Organization//Your Product//EN
-BEGIN:VEVENT
-UID:${new Date().getTime()}@yourdomain.com
-DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
-DTSTART:20240907T030000Z
-DTEND:20240907T080000Z
-SUMMARY:Majlis Nikah Nurul & Abdullah
-DESCRIPTION: YoU hAvE tO bE tHeRe , love love
-LOCATION:TAMU Hotal
-END:VEVENT
-END:VCALENDAR
+        BEGIN:VCALENDAR
+        VERSION:2.0
+        PRODID:-//Your Organization//Your Product//EN
+        BEGIN:VEVENT
+        UID:${new Date().getTime()}@yourdomain.com
+        DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+        DTSTART:20240907T030000Z
+        DTEND:20240907T080000Z
+        SUMMARY:Majlis Nikah Nurul & Abdullah
+        DESCRIPTION: YoU hAvE tO bE tHeRe , love love
+        LOCATION:TAMU Hotal
+        END:VEVENT
+        END:VCALENDAR
             `.trim();
-
+        
             const blob = new Blob([icsContent], { type: 'text/calendar' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -872,30 +905,29 @@ END:VCALENDAR
             a.click();
             document.body.removeChild(a);
         }
-
+        
         function addToAndroidCalendar() {
-    const title = 'Majlis Nikah Nurul & Abdullah';
-    const location = 'TAMU Hotel';
-    const details = 'Event Details';
-    const startDate = new Date('2024-09-07T03:00:00Z');
-    const endDate = new Date('2024-09-07T08:00:00Z');
-
-    const startMillis = startDate.getTime();
-    const endMillis = endDate.getTime();
-
-    const androidCalendarURL = `intent://com.google.android.calendar/event?action=VIEW&title=${encodeURIComponent(title)}&description=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&beginTime=${startMillis}&endTime=${endMillis}#Intent;scheme=http;package=com.google.android.calendar;end`;
-
-    window.open(androidCalendarURL);
-}
-
-
+            const title = 'Majlis Nikah Nurul & Abdullah';
+            const location = 'TAMU Hotel';
+            const details = 'Event Details';
+            const startDate = new Date('2024-09-07T03:00:00Z');
+            const endDate = new Date('2024-09-07T08:00:00Z');
+        
+            const startMillis = startDate.getTime();
+            const endMillis = endDate.getTime();
+        
+            const androidCalendarURL = `intent://com.google.android.calendar/event?action=VIEW&title=${encodeURIComponent(title)}&description=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&beginTime=${startMillis}&endTime=${endMillis}#Intent;scheme=http;package=com.google.android.calendar;end`;
+        
+            window.open(androidCalendarURL);
+        }
+        
         function setFullHeight() {
             document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-}
-
-window.addEventListener('resize', setFullHeight);
-window.addEventListener('load', setFullHeight);
-
+        }
+        
+        window.addEventListener('resize', setFullHeight);
+        window.addEventListener('load', setFullHeight);
+        
         function copyTextToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 alert('Account number copied');
@@ -903,34 +935,44 @@ window.addEventListener('load', setFullHeight);
                 console.error('Failed to copy text: ', err);
             });
         }
-
-        function playVideo(target) {
-            if (target === 'musicPanel') {
-                const iframe = document.getElementById('musicVideo');
-                const src = iframe.src;
-                iframe.src = src + "?autoplay=1";
-            }
-        }
-
-            function showContent(language) {
+        
+        function showContent(language) {
             var itineraries = document.querySelectorAll('.itinerary');
             itineraries.forEach(function(itinerary) {
                 itinerary.classList.remove('active');
             });
             document.getElementById(language).classList.add('active');
         }
+        
         function openLink(url) {
-    window.open(url, '_blank');
-}
+            window.open(url, '_blank');
+        }
+        
 
-setTimeout(function() {
+        //intigration to google sheet 
+        setTimeout(function() {
             document.getElementById('myWrapper').classList.add('zoom-out');
         }, 1000); // Trigger after 1 second (adjust timing as needed)
+        
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxoQoBotSD3NWP4f76mdTTzxUx_RYV2HxerGq0e7L35To9GCccAS0W16Akty4rUdEohZw/exec'
+        
+        const form = document.forms['contact-form']
 
-    </script>
-</script>
+        
+        //Notifcation
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thank you! your form is submitted successfully." ))
+            .then(() => { window.location.reload(); })
+            .catch(error => console.error('Error!', error.message))
+        })
+	    
+        </script>
 
     
+    
+
     
 
     
