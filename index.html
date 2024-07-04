@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdullah & Nurul Akad Nikah</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <style>
-  /* Base styles for all devices */
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+   
+</head>
+
+	<style>
+		/* Base styles for all devices */
 *{
     padding: 0;
     margin: 0;
     border-width: 0;
 }
+
 body {
    
     font-family: Arial, sans-serif;
@@ -102,8 +108,6 @@ body {
     width: 100%;
     box-sizing: border-box;
 }
-
-
 
 
 
@@ -212,7 +216,7 @@ body {
     height: 100%;
     background: url('card2.png') no-repeat center center;
     background-size: cover;
-    z-index: 30; /* Ensure cover is on top */
+    z-index: 35; /* Ensure cover is on top */
     display: block;
     justify-content: center;
     align-items: center;
@@ -384,13 +388,15 @@ font-size: 26spx;
 .card2 {
     position: relative;
     width: 100%;
-    max-width: body; /* Adjust as needed */
+    height: calc(100vh - 56px);
     
 }
 
 .pictureGo {
     width: 100%;
+    height: 100%;
     display: block;
+    z-index: -1;
 }
 
 .back-text,
@@ -406,8 +412,8 @@ font-size: 26spx;
 .back-text {
     top: 30%;
     font-size: 2em; /* Adjust as needed */
-    font-weight: bold;
     padding: auto;
+    font-family: 'Aceh';
 }
 
 .names-card {
@@ -422,6 +428,7 @@ font-size: 26spx;
     font-size: 1em; /* Adjust as needed */
     padding: auto;
     margin-top: 25px;
+    font-family: 'Aceh';
 }
 
 .malay-V {
@@ -545,8 +552,7 @@ input, select, textarea {
 }
 
 
-    </style>
-</head>
+	</style>
 <body>
   
     <div class="wrapper">
@@ -579,7 +585,7 @@ input, select, textarea {
             
             <div id="malay" class="itinerary active">
                 <div class="malay-V">
-<p class="greeting1">Bismillahirrahmanirrahim</p>
+                    <p class="greeting1">Bismillahirrahmanirrahim</p>
                     <p><br></p>
                     <p class="names">Abdul Saheed<br>dan <br>Mahfuzah Abdul Rahman</p>
                     <p><br></p>
@@ -823,25 +829,27 @@ input, select, textarea {
 
  
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            function handleResize() {
-                const vh = window.innerHeight * 0.01;
-                document.documentElement.style.setProperty('--vh', `${vh}px`);
-            }
-            window.addEventListener('resize', handleResize);
-            handleResize();
-        });
+        
         
         function slideUp() {
-            // Slide up animation
-            document.getElementById("cover").classList.add("slide-up");
+    document.getElementById("cover").classList.add("slide-up");
+    const iframe = document.getElementById('musicPane');
+    const src = iframe.src;
+    iframe.src = src.includes('?') ? src + "&autoplay=1" : src + "?autoplay=1";
 
-            // Play the YouTube video
-            const iframe = document.getElementById('musicPane');
-            const src = iframe.src;
-            iframe.src = src.includes('?') ? src + "&autoplay=1" : src + "?autoplay=1";
-        }
-        
+    // Determine scroll position based on device type
+    const container = document.querySelector('.container');
+    let specificPosition = 715; // Default scroll position
+
+    if (window.innerWidth <= 768) {
+        specificPosition = 650; // Adjust scroll position for mobile devices
+    }
+
+    container.scrollTo({ top: specificPosition, behavior: 'smooth' });
+}
+
+
+
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
                 const target = this.getAttribute('data-target');
@@ -932,13 +940,7 @@ input, select, textarea {
             window.open(androidCalendarURL);
         }
         
-        function setFullHeight() {
-            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-        }
-        
-        window.addEventListener('resize', setFullHeight);
-        window.addEventListener('load', setFullHeight);
-        
+  
         function copyTextToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 alert('Account number copied');
@@ -946,7 +948,22 @@ input, select, textarea {
                 console.error('Failed to copy text: ', err);
             });
         }
-        
+
+        document.addEventListener('DOMContentLoaded', function() {
+    function setFullHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    function handleResize() {
+        setFullHeight();
+    }
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('load', setFullHeight);
+    setFullHeight(); // Call setFullHeight initially
+});
+
         function showContent(language) {
             var itineraries = document.querySelectorAll('.itinerary');
             itineraries.forEach(function(itinerary) {
@@ -978,12 +995,12 @@ input, select, textarea {
             .then(() => { window.location.reload(); })
             .catch(error => console.error('Error!', error.message))
         })
-	    
+
+      
+
         </script>
 
     
-    
-
     
 
     
