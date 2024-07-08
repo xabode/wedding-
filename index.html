@@ -9,9 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
    
 </head>
-
-	<style>
-		/* Base styles for all devices */
+	<style>/* Base styles for all devices */
 *{
     padding: 0;
     margin: 0;
@@ -54,7 +52,7 @@ body {
     height: calc(100vh - 56px); /* Subtract the height of the navbar */
     flex-direction: column; /* Ensure that elements stack vertically */
     text-align: center;
-    background: url('background.png');
+    background: url('cover2.png');
     background-size: cover;
     top: 0; /* Ensures the background image covers the container */
 }
@@ -63,7 +61,7 @@ body {
 
     display: flex;
     justify-content: space-around;
-    background-color: palevioletred;
+    background-color: rgb(181, 148, 129);
     width: 100%;
     z-index: 20;
     position: fixed;
@@ -203,7 +201,7 @@ body {
         max-width: 400px;
     }
     .body {
-        background-color: #f0f0f0;
+        background-color: #e6e0ce;
     }
 }
 
@@ -214,7 +212,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('card2.png') no-repeat center center;
+    background: url('background2.png') no-repeat center center;
     background-size: cover;
     z-index: 35; /* Ensure cover is on top */
     display: block;
@@ -223,8 +221,8 @@ body {
 }
 
 .cover-text {
-    padding: auto;
-    padding-top: 50%;
+    padding: 30px;
+    padding-top: 25%;
     text-align: center;
     color: rgb(107, 118, 94);
 }
@@ -233,12 +231,11 @@ body {
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
-    background-color: rgba(211, 55, 204, 0.6);
+    background-color: rgb(181, 148, 129);
     color: white;
     border: none;
     border-radius: 5px;
     z-index: 31; /* Ensure button is on top */
-    margin-top: 30%;
     
 }
 
@@ -266,6 +263,7 @@ body {
 
 .contact-info {
     flex-grow: 1;
+    text-align: left;
 }
 
 .contact-name {
@@ -309,7 +307,9 @@ body {
 
 .countdays {
     text-align: center;
-    margin: 0 10px;
+    margin: 20px 10px;
+    display: inline-block; 
+
 }
 
 .countdownd {
@@ -320,6 +320,7 @@ body {
     justify-content: space-between;
     font-family: 'Aceh';
 }
+.countdown-item { font-size: 18px; }
 
 .greeting {
     font-size: 20px;
@@ -327,16 +328,28 @@ body {
 }
 
 .names, .gromparenrts {
-    font-size: 36px;
-    font-family: 'YaquoteScript', serif;
+    font-size: 16px;
+    font-family: 'Louis';
+}
+.names-ar, .gromparenrts-ar {
+    font-size: 18px;
+    font-family: 'ruqrq';
 }
 
 .couple{
-    font-family: "Aceh";
-    font-size: 16px;
-    font-weight: bold;
+    font-family: "YaquoteScript";
+    font-size: 30px;
+    font-weight: light;
 }
 
+.couple1{
+    font-family: "diwan";
+    font-size: 34px;
+    font-weight: light;
+    line-height: 1.2;
+}
+
+.day,
 .date ,
 .time ,
 .venue-address,
@@ -348,9 +361,59 @@ body {
 .invitation, 
 .invitation2 {
 
-font-family: "Aceh";
-font-size: 26spx;
+    font-family: "Aceh";
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+
 }
+
+.date1{
+    font-family: "Aceh";
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+.date-ah{
+    font-family: "Aceh";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 0.9em;
+    color: gray;
+
+}
+
+.date1{
+    font-family: "Aceh";
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+.date-ha{
+    font-family: "Aceh";
+    font-weight: bold;
+    font-style: normal;
+    font-size: 0.9em;
+    color: rgb(107, 118, 94);;
+    
+
+}
+.date-card{
+    font-family: "Aceh";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 0.9em;
+    color: gray;
+    padding-bottom: 70%;
+    
+
+}
+
+
 
 
 
@@ -361,12 +424,46 @@ font-size: 26spx;
 
 @font-face {
     font-family: 'Aceh';
-    src: url('Aceh.otf') format('truetype');
+    src: url('Louis George Cafe Light Italic.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'nova';
+    src: url('nova.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'esthetique';
+    src: url('esthetique.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'magnolia';
+    src: url('magnolia.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'diwan';
+    src: url('arfonts-tharwat-emara-dewani.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ruqrq';
+    src: url('ruqrq.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Louis';
+    src: url('Louis.ttf') format('truetype');
+}
+
+
+
 .names-text {
-    font-size: 48px;
-    font-family: 'YaquoteScript', serif;
+    font-size: 42px;
+    font-family: 'nova', serif;
+    margin-top: 10%;
+
 }
 
 .buttonIN {
@@ -374,8 +471,14 @@ font-size: 26spx;
 }
 
 .greeting-text {
-    font-size: 20px;
+    font-size: 26px;
     font-family: 'Aceh', serif;
+    font-weight: bolder;
+}
+
+.invitation-text{
+    font-size: 22px;
+    margin-top: 10%;
 }
 
 .Gift-items {
@@ -385,66 +488,22 @@ font-size: 26spx;
     width: 100%;
 }
 
-.card2 {
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 56px);
-    
-}
 
-.pictureGo {
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: -1;
-}
-
-.back-text,
-.names-card,
-.invitation-card {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    color: rgb(107, 118, 94); 
-    font-size: 36px;
-}
-
-.back-text {
-    top: 30%;
-    font-size: 2em; /* Adjust as needed */
-    padding: auto;
-    font-family: 'Aceh';
-}
-
-.names-card {
-    top: 45%;
-    font-family: 'YaquoteScript', serif;
-    font-size: 36px; /* Adjust as needed */
-    padding: auto;
-}
-
-.invitation-card {
-    top: 60%;
-    font-size: 1em; /* Adjust as needed */
-    padding: auto;
-    margin-top: 25px;
-    font-family: 'Aceh';
-}
 
 .malay-V {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .english-V{
 
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .arabic-V{
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .buttons {
@@ -458,9 +517,10 @@ font-size: 26spx;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    border: none;
+    border: 1px;
     outline: none;
-    background-color: #c29cd2; /* Change color as needed */
+    background-color: rgb(181, 148, 129);
+    color: white; /* Change color as needed */
 }
 
 .buttons button:first-child {
@@ -510,7 +570,47 @@ font-size: 26spx;
 }
 
 
-
+        /* Overlay styles */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #overlay .overlay-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        #overlay .overlay-button {
+            background: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        /* Loading animation styles */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-top-color: #007BFF;
+            animation: spin 1s infinite linear;
+            margin: auto;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
 
 
 
@@ -519,7 +619,7 @@ font-size: 26spx;
 	width: 80%;
 	padding:10%;
 	border: 1px solid #eeeeee;
-	background-color: plum;
+	background-color: rgb(181, 148, 129);
     font-family: 'aceh';
     align-items: center;
     text-align: center;
@@ -540,7 +640,7 @@ input, select, textarea {
 
 #submit{
 	border: none;
-	background-color: palevioletred;
+	background-color: rgb(125, 103, 90);
 	color: white;
 	width: 200px;
 	margin-top: 10px;
@@ -551,17 +651,69 @@ input, select, textarea {
 
 }
 
+.audioPlayer{
+    width: 100%;
+   height: 200px;
+   
+}
 
-	</style>
+
+
+.insideCover {
+    padding-top: 15%;
+    text-align: center;
+    color: rgb(107, 118, 94);
+
+}
+
+.card2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: url('background2.png') no-repeat center center;
+    background-size: cover;
+}
+
+.back-text {
+    font-size: 2em; /* Adjust as needed */
+    padding: auto;
+    font-family: 'Aceh';
+    padding: 5px;
+    padding-bottom: 20px;
+}
+
+.names-card {
+    font-family: 'nova', serif;
+    font-size: 36px; /* Adjust as needed */
+    padding: 5px;
+    padding-bottom: 40px;
+
+}
+
+.invitation-card {
+    font-size: 1.3em; /* Adjust as needed */
+    padding: auto;
+    font-family: 'Aceh';
+    padding: 5px;
+    font-weight: bolder;
+
+}</style>
 <body>
   
     <div class="wrapper">
         <div class="cover" id="cover">
             <div class="cover-text">
-                <strong class="greeting-text">Majlis Nikah</strong>
-                <p class="names-text" >Abdullah<br> &<br> Nurul</p>
-                <p class="invitation-text">Sabtu, 07 September 2024</p>
-            
+                <strong class="greeting-text">Nikah Ceremony</strong>
+                <p class="names-text" >Abdullah<br> &<br>NurulJannah</p>
+                <p class="invitation-text">Saturday<br>07 | Sep | 24</p>
+                
+                <p class="date-ha">4  Rabiʻ Awal  1446</p>
+
+                
+
         </div>
         <div class="buttonIN"> 
             <button onclick="slideUp()" >Open Invitation</button>
@@ -570,77 +722,85 @@ input, select, textarea {
         <div class="container">
 
 
-            <div class="card2">
-                <img src="card2.png" class="pictureGo" alt="Invitation Background">
-                <p class="back-text"><br>Majlis Nikah</p>
-                <p class="names-card">Abdullah<br>&<br>Nurul</p>
-                <p class="invitation-card">Sabtu, 07 September 2024</p>
-            </div>
+            <div class="card2" id="card2">
+                <div class="insideCover" id="insideCover">
+                <p class="back-text"><br>Nikah Ceremony</p>
+                <p class="names-card">Abdullah<br>&<br>NurulJannah</p>
+                <p class="invitation-card">Saturday<br>07 | Sep | 24</p>
+                <p class="date-card">4 Rabiʻ Awal 1446</p>
 
+                
+            </div></div>
             <div class="buttons">
-                <button onclick="showContent('malay')">MY</button>
-                <button onclick="showContent('english')">EN</button>
-                <button onclick="showContent('arabic')">AR</button>
+                <button onclick="showContent('malay')">Malay</button>
+                <button onclick="showContent('english')">English</button>
+                <button onclick="showContent('arabic')">عربي</button>
             </div>
             
             <div id="malay" class="itinerary active">
                 <div class="malay-V">
-                    <p class="greeting1">Bismillahirrahmanirrahim</p>
+                    <img src="bismillah.png"  style="width: 50%;">
                     <p><br></p>
-                    <p class="names">Abdul Saheed<br>dan <br>Mahfuzah Abdul Rahman</p>
+                    <p class="names">Abdul Saheed<br>dan<br>Mahfuzah Abdul Rahman</p>
                     <p><br></p>
-                    <p class="invitation">Dengan penuh kesyukuran kepada Allah SWT, kami dengan ini mempelawa ke hadrat Tan Sri/Puan Sri/Dato/Datin/Tuan/Puan/Encik/Cik untuk menyertai majlis nikah anak kesayangan kami</p>
+                    <p class="invitation">Dengan penuh kesyukuran kepada Allah SWT, kami dengan ini mempelawa ke hadrat Tan Sri/Puan Sri/Dato/Datin/Tuan/Puan/Encik/Cik untuk menyertai majlis nikah anak perempuan kesayangan kami</p>
                     <p><br></p>
-                    <p class="couple">NURUL JANNAH BINTI ABDUL SAHEED<br>Dengan<br>ABDULLAH ABDULJALIL AL-AREFI</p>
+                    <p class="couple">NurulJanah Binti Abdul Saheed<br>dengan<br>Abdullah Abduljalil Al-Arefi</p>
                     <p><br></p>
-                    <p class="invitation2">Anak kepada :</p>
-                    <p class="gromparenrts">Abduljalil Al-Arefi<br>&<br> Jamilah Al-Arefi</p>
+                    <p class="invitation2">Anak kepada</p>
+                    <p class="gromparenrts">Al-Marhum Haji Abduljalil Al-Arefi<br>dan<br> Hajah Jamilah Al-Arefi</p>
                     <img src="UP.SVG" class="my-4" style="width: 35%;">
-                    <p class="date">Tarikh: Sabtu, 07 September 2024</p>
-                    <p class="time">Waktu: 11.00 am</p>
-                    <p class="venue-address">Tempat: TAMU Hotel & Suites</p>
+                    <p class="day">Sabtu</p>
+                    <p class="date1">07 | Sep | 24</p>
+                    <p class="date-ah">4  Rabiʻ Awal 1446</p>
+                    <p class="time">11.00 am<br><br></p>
+                    <p class="venue-address">TAMU Hotel & Suites</p>
                     <p class="venue-addressa">120 Jalan Raja Abdullah<br>Kampong Bharu<br>50300, Kuala Lumpur</p>
                     <img src="down.SVG" class="my-4" style="width: 35%;">
                     <p class="appreciation">Sebagai tanda terima kasih, mohon kehadiran dan doa restu dari Tuan/Puan sekeluarga.</p>
-                    
                 </div>
             </div>
-            
+        
             <div id="english" class="itinerary">
                 <div class="english-V">
-                    <p class="greeting2">In the name of God, the Most Gracious, the Most Merciful</p>
+                    <img src="bismillah.png"  style="width: 50%;">
+
+                    <p class="greeting2">In the name of Allah, the Most Gracious, the Most Merciful</p>
                     <p><br></p>
                     <p class="names">Abdul Saheed<br>&<br>Mahfuzah Abdul Rahman</p>
                     <p><br></p>
                     <p class="invitation">With gratitude to Allah SWT, we request the honour of your presence at the Nikah Ceremony of our only daughter</p>
                     <p><br></p>
-                    <p class="couple">NURUL JANNAH BINTI ABDUL SAHEED<br>With<br>ABDULLAH ABDULJALIL AL-AREFI</p>
+                    <p class="couple">NurulJanah Binti Abdul Saheed<br>with<br>Abdullah Abduljalil Al-Arefi</p>
                     <p><br></p>
-                    <p class="invitation2">son of :</p>
-                    <p class="gromparenrts">Abduljalil Al-Arefi<br>&<br> Jamilah Al-Arefi</p>
+                    <p class="invitation2">son of </p>
+                    <p class="gromparenrts">Late Haji Abduljalil Al-Arefi<br>&<br>Hajah Jamilah Al-Arefi</p>
                     <img src="UP.SVG" class="my-4" style="width: 35%;">
-                    <p class="date">Date: Saturday, 07 September 2024</p>
-                    <p class="time">Time: 11.00 am</p>
-                    <p class="venue-address">Venue:TAMU Hotel & Suites</p>
+                    <p class="day">Saturday</p>
+                    <p class="date1">07 | Sep | 24</p>
+                    <p class="date-ah">4  Rabiʻ Awal 1446</p>
+                    <p class="time">11.00 am<br></p>
+                    <p><br></p>
+                    <p class="venue-address">TAMU Hotel & Suites</p>
                     <p class="venue-addressa">120 Jalan Raja Abdullah<br>Kampong Bharu<br>50300, Kuala Lumpur</p>
-                    <img src="down.SVG" class="my-4" style="width: 35%;">
+                    <img src="down.SVG" class="my-4" style="width: 35%;" >
                     <p class="appreciation">Your presence and blessings are sincerely appreciated.</p>
-                    
                 </div>
             </div>
-            
+        
             <div id="arabic" class="itinerary">
                 <div class="arabic-V">
-                    <p class="greeting2">بسم الله الرحمن الرحيم</p>
+                    <img src="bismillah.png"  style="width: 50%;">
                     <p><br></p>
-                    <p class="names">عبدالشهيد<br>&<br>محفوظة عبد الرحمن</p>
+
+                    <p class="names-ar">عبدالشهيد<br>و<br>محفوظة عبد الرحمن</p>
                     <p><br></p>
                     <p class="invitation">بكل الامتنان لله سبحانه وتعالى، ندعو السيد/السيدة/الأستاذ/الآنسة لحضور حفل زفاف ابنتنا العزيزة</p>
                     <p><br></p>
-                    <p class="couple">نور الجنة بنت عبدالشهيد<br>مع<br>عبد الله عبد الجليل العريفي</p>
+                    <p class="couple1">نور الجنة بنت عبدالشهيد<br>من<br>عبد الله عبد الجليل العريفي</p>
                     <p><br></p>
-                    <p class="invitation2">ابن:</p>
-                    <p class="gromparenrts">عبد الجليل العريفي<br>&<br>جميلة العريفي</p>
+                    <p class="invitation2">ابن</p>
+                    <p class="gromparenrts-ar">الحاج المرحوم عبد الجليل العريفي<br>و<br>الحجة جميلة العريفي</p>
                     <img src="UP.SVG" class="my-4" style="width: 35%;">
                     <p class="date">التاريخ: السبت، 7 سبتمبر 2024</p>
                     <p class="time">الوقت: 11:00 صباحاً</p>
@@ -648,7 +808,6 @@ input, select, textarea {
                     <p class="venue-addressa">120 Jalan Raja Abdullah<br>Kampong Bharu<br>50300, Kuala Lumpur</p>
                     <img src="down.SVG" class="my-4" style="width: 35%;">
                     <p class="appreciation">حضوركم ومباركتكم محل تقديرنا العميق.</p>
-                    
                 </div>
             </div>
             <!-- Countdown timer element -->
@@ -665,10 +824,7 @@ input, select, textarea {
                 <div class="countdays">
                     <p id="seconds" class="countdown-item"></p>
                 </div>
-                <p class="br"><br><br><br><br></p>
             </div>
-        
-        </div>
         
         <div class="navbar">
             <a href="#music" class="nav-link" data-target="musicPanel"><img src="music.svg" width="24" height="24"><br>Music</a>
@@ -681,7 +837,9 @@ input, select, textarea {
 
         <!-- Music Panel -->
         <div class="panel" id="musicPanel">
-            <iframe id="musicPane" width="100%" height="200" src="https://www.youtube.com/embed/GRbwRW0NUlE?si=e4qTV-6cu5tV3Dye&amp;start=17" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <audio id="audioPlayer" controls style="display:none;">
+                <source src="ChristinaPerri.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.</audio>
         </div>
 
 
@@ -728,7 +886,7 @@ input, select, textarea {
         <div class="panel" id="contactPanel">      
         <div class="contact-item">
             <div class="contact-info">
-                <p class="contact-name">NurulJannah</p>
+                <p class="contact-name">Nurul Jannah</p>
                 <p class="contact-role">The Bride</p>
             </div>
             <div class="contact-icons">
@@ -744,7 +902,7 @@ input, select, textarea {
         <div class="contact-item">
             <div class="contact-info">
                 <p class="contact-name">Abdul Saheed</p>
-                <p class="contact-role">Baba</p>
+                <p class="contact-role">Father of The Bride</p>
             </div>
             <div class="contact-icons">
                 <a href="tel:+60126302838">
@@ -759,7 +917,7 @@ input, select, textarea {
         <div class="contact-item">
             <div class="contact-info">
                 <p class="contact-name">Mahfuzah</p>
-                <p class="contact-role">Mama</p>
+                <p class="contact-role">Mother of The Bride</p>
             </div>
             <div class="contact-icons">
                 <a href="tel:+60126302738">
@@ -773,7 +931,20 @@ input, select, textarea {
 
         <div class="contact-item">
             <div class="contact-info">
-                <p class="contact-name">Abduallah Al-Arefi</p>
+                <p class="contact-name">Abdul Mateen</p>
+                <p class="contact-role">Brother of The Bride</p>
+            </div>
+            <div class="contact-icons">
+                <a href="tel:+60126384142">
+                    <img src="phone-solid.svg" alt="Phone" width="20" height="20">                </a>
+                <a href="https://wa.me/60126384142" target="_blank">
+                    <img src="whatsapp.svg" alt="Phone" width="24" height="24">
+                </a>
+            </div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-info">
+                <p class="contact-name">Abdullah Al-Arefi</p>
                 <p class="contact-role">The Groom</p>
             </div>
             <div class="contact-icons">
@@ -788,13 +959,29 @@ input, select, textarea {
 
         <div class="contact-item">
             <div class="contact-info">
-                <p class="contact-name">Mateen</p>
-                <p class="contact-role">Brother</p>
+                <p class="contact-name">Mohd Fauzi</p>
+                <p class="contact-role">Uncle of The Bride</p>
             </div>
             <div class="contact-icons">
-                <a href="tel:+60126384142">
-                    <img src="phone-solid.svg" alt="Phone" width="20" height="20">                </a>
-                <a href="https://wa.me/60126384142" target="_blank">
+                <a href="tel:+60133083688">
+                    <img src="phone-solid.svg" alt="Phone" width="20" height="20">
+                </a>
+                <a href="https://wa.me/60133083688" target="_blank">
+                    <img src="whatsapp.svg" alt="Phone" width="24" height="24">
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-info">
+                <p class="contact-name">Mohd Radhi</p>
+                <p class="contact-role">Uncle of The Bride</p>
+            </div>
+            <div class="contact-icons">
+                <a href="tel:+60192525690">
+                    <img src="phone-solid.svg" alt="Phone" width="20" height="20">
+                </a>
+                <a href="https://wa.me/60192525690" target="_blank">
                     <img src="whatsapp.svg" alt="Phone" width="24" height="24">
                 </a>
             </div>
@@ -807,45 +994,53 @@ input, select, textarea {
             <div class="rsvp-items">
             <form method="post" action="https://script.google.com/macros/s/AKfycbxoQoBotSD3NWP4f76mdTTzxUx_RYV2HxerGq0e7L35To9GCccAS0W16Akty4rUdEohZw/exec" name="contact-form">
                 <h4>RSVP</h4>
-                <input type="text" name="your-name" placeholder="Your Name">
-                <input type="number" name="your-number" placeholder="Phone Number">
-                <select name="your-email" required>
-                    <option value="">People coming</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <textarea name="message" rows="7" placeholder="Your Message"></textarea>
+                <input type="text" name="your-name" placeholder="Guest Name "required>
+                <input type="number" name="your-number" placeholder="Guest Contact Number" required>
+                <input type="number" name="your-email" placeholder="Number of Guests" min="1" max="10" required>
+                <textarea name="message" rows="7" placeholder="Message"></textarea>
+                <p  name="Notes" >Please RSVP by 31st of August</p>
                 <input type="submit" value="Submit" id="submit">
             </form>
         </div>
     </div>
        </div>
+       <div id="overlay">
+        <div class="overlay-content">
+            <div class="spinner" id="loading-spinner"></div>
+            <p id="overlay-message">Submitting your form, please wait...</p>
+            <button class="overlay-button" id="overlay-button" onclick="hideOverlay()" style="display: none;">Close</button>
+        </div>
+    </div>
 
 
     </div>
+
 
  
     <script>
         
         
         function slideUp() {
-    document.getElementById("cover").classList.add("slide-up");
-    const iframe = document.getElementById('musicPane');
-    const src = iframe.src;
-    iframe.src = src.includes('?') ? src + "&autoplay=1" : src + "?autoplay=1";
 
-    // Determine scroll position based on device type
-    const container = document.querySelector('.container');
-    let specificPosition = 715; // Default scroll position
 
-    if (window.innerWidth <= 768) {
-        specificPosition = 650; // Adjust scroll position for mobile devices
-    }
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.style.display = 'block';
+            audioPlayer.play();
+        
+            document.getElementById("cover").classList.add("slide-up");
 
-    container.scrollTo({ top: specificPosition, behavior: 'smooth' });
+
+            // Determine scroll position based on device type
+            const container = document.querySelector('.container');
+            let specificPosition = 625; // Default scroll position
+
+            if (window.innerWidth <= 768) {
+                specificPosition = 625; // Adjust scroll position for mobile devices
+            }
+        
+            container.scrollTo({ top: specificPosition, behavior: 'smooth' });
+
+
 }
 
 
@@ -871,74 +1066,90 @@ input, select, textarea {
                 });
             }
         });
+
+        const languageLabels = {
+            english: { days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds' },
+            malay: { days: 'Hari', hours: 'Jam', minutes: 'Minit', seconds: 'Saat' },
+            arabic: { days: 'أيام', hours: 'ساعات', minutes: 'دقائق', seconds: 'ثواني' }
+        };
+
+        let currentLanguage = 'malay'; // default language
         
         function updateCountdown() {
             const eventDate = new Date('2024-09-07T12:00:00');
             const now = new Date();
             const timeDifference = eventDate - now;
-        
+
             if (timeDifference > 0) {
                 const seconds = Math.floor((timeDifference / 1000) % 60);
                 const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
                 const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
                 const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        
-                document.getElementById('days').innerHTML = `${days}<br>Hari`;
-                document.getElementById('hours').innerHTML = `${hours}<br>Jam`;
-                document.getElementById('minutes').innerHTML = `${minutes}<br>Minit`;
-                document.getElementById('seconds').innerHTML = `${seconds}<br>Saat`;
+
+                document.getElementById('days').innerHTML = `${days}<br>${languageLabels[currentLanguage].days}`;
+                document.getElementById('hours').innerHTML = `${hours}<br>${languageLabels[currentLanguage].hours}`;
+                document.getElementById('minutes').innerHTML = `${minutes}<br>${languageLabels[currentLanguage].minutes}`;
+                document.getElementById('seconds').innerHTML = `${seconds}<br>${languageLabels[currentLanguage].seconds}`;
             } else {
                 document.querySelector('.countdownd').innerHTML = 'The event has started!';
             }
         }
-        
-        // Update the countdown every second
-        setInterval(updateCountdown, 1000);
-        
-        // Initial call to display the countdown immediately when the page loads
+
+        // Initial call to start countdown
         updateCountdown();
+        setInterval(updateCountdown, 1000); // Update countdown every second
         
         function downloadICS() {
-            const icsContent = `
-        BEGIN:VCALENDAR
-        VERSION:2.0
-        PRODID:-//Your Organization//Your Product//EN
-        BEGIN:VEVENT
-        UID:${new Date().getTime()}@yourdomain.com
-        DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
-        DTSTART:20240907T030000Z
-        DTEND:20240907T080000Z
-        SUMMARY:Majlis Nikah Nurul & Abdullah
-        DESCRIPTION: YoU hAvE tO bE tHeRe , love love
-        LOCATION:TAMU Hotal
-        END:VEVENT
-        END:VCALENDAR
-            `.trim();
-        
-            const blob = new Blob([icsContent], { type: 'text/calendar' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'event.ics';
-            document.body.appendChild(a);
-            a.click();
+    const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//Your Product//EN
+BEGIN:VEVENT
+UID:${new Date().getTime()}@yourdomain.com
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+DTSTART:20240907T030000Z
+DTEND:20240907T080000Z
+SUMMARY:Nikah Ceremoney: Nurul Jannah & Abdullah
+DESCRIPTION: 
+LOCATION:TAMU Hotel & Suites, 50300 Kuala Lumpur
+END:VEVENT
+END:VCALENDAR
+    `.trim();
+
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+
+    // Use FileSaver.js to ensure cross-browser compatibility
+    if (window.navigator.msSaveOrOpenBlob) {
+        // For IE
+        window.navigator.msSaveOrOpenBlob(blob, 'event.ics');
+    } else {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'event.ics';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
             document.body.removeChild(a);
-        }
+            window.URL.revokeObjectURL(url);  
+        }, 0);
+    }
+}
         
-        function addToAndroidCalendar() {
-            const title = 'Majlis Nikah Nurul & Abdullah';
-            const location = 'TAMU Hotel';
-            const details = 'Event Details';
-            const startDate = new Date('2024-09-07T03:00:00Z');
-            const endDate = new Date('2024-09-07T08:00:00Z');
-        
-            const startMillis = startDate.getTime();
-            const endMillis = endDate.getTime();
-        
-            const androidCalendarURL = `intent://com.google.android.calendar/event?action=VIEW&title=${encodeURIComponent(title)}&description=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&beginTime=${startMillis}&endTime=${endMillis}#Intent;scheme=http;package=com.google.android.calendar;end`;
-        
-            window.open(androidCalendarURL);
-        }
+function addToGoogleCalendar() {
+    const title = 'Nikah Ceremony: Nurul Jannah & Abdullah';
+    const location = 'TAMU Hotel & Suites, 50300 Kuala Lumpur';
+    const details = '';
+    const startDate = new Date('2024-09-07T03:00:00Z');
+    const endDate = new Date('2024-09-07T08:00:00Z');
+
+    const startMillis = startDate.toISOString().replace(/-|:|\.\d+/g, '');
+    const endMillis = endDate.toISOString().replace(/-|:|\.\d+/g, '');
+
+    const googleCalendarURL = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startMillis}/${endMillis}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&sf=true&output=xml`;
+
+    window.open(googleCalendarURL, '_blank');
+}
         
   
         function copyTextToClipboard(text) {
@@ -964,14 +1175,17 @@ input, select, textarea {
     setFullHeight(); // Call setFullHeight initially
 });
 
-        function showContent(language) {
+function showContent(language) {
+            currentLanguage = language; // update current language
             var itineraries = document.querySelectorAll('.itinerary');
             itineraries.forEach(function(itinerary) {
                 itinerary.classList.remove('active');
             });
             document.getElementById(language).classList.add('active');
+            updateCountdown(); // update countdown with new language
         }
-        
+
+
         function openLink(url) {
             window.open(url, '_blank');
         }
@@ -981,22 +1195,61 @@ input, select, textarea {
         setTimeout(function() {
             document.getElementById('myWrapper').classList.add('zoom-out');
         }, 1000); // Trigger after 1 second (adjust timing as needed)
-        
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxoQoBotSD3NWP4f76mdTTzxUx_RYV2HxerGq0e7L35To9GCccAS0W16Akty4rUdEohZw/exec'
-        
-        const form = document.forms['contact-form']
 
-        
-        //Notifcation
+
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxoQoBotSD3NWP4f76mdTTzxUx_RYV2HxerGq0e7L35To9GCccAS0W16Akty4rUdEohZw/exec';
+        const form = document.forms['contact-form'];
+
         form.addEventListener('submit', e => {
-            e.preventDefault()
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => alert("Thank you! your form is submitted successfully." ))
-            .then(() => { window.location.reload(); })
-            .catch(error => console.error('Error!', error.message))
-        })
+            e.preventDefault();
 
-      
+            // Form validation
+            const yourName = form['your-name'].value.trim();
+            const yourNumber = form['your-number'].value.trim();
+            const yourEmail = form['your-email'].value.trim();
+            const peopleComing = form['your-email'].value;
+            const msg = form['message'].value.trim();
+
+
+
+            if (!yourName || !yourNumber || !yourEmail) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            if (peopleComing < 1 || peopleComing > 10) {
+                alert("The number of people coming must be between 1 and 10.");
+                return;
+            }
+
+            showOverlay(); // Show the overlay immediately
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => showSuccessMessage())
+            .catch(error => showError(error.message));
+        });
+
+        function showOverlay() {
+            document.getElementById('overlay').style.display = 'flex';
+        }
+
+        function showSuccessMessage() {
+            document.getElementById('loading-spinner').style.display = 'none';
+            document.getElementById('overlay-message').innerText = 'We thank you for comfirming your attendance. May Allah reward you generously.';
+            document.getElementById('overlay-button').style.display = 'block';
+        }
+
+        function showError(errorMessage) {
+            document.getElementById('loading-spinner').style.display = 'none';
+            document.getElementById('overlay-message').innerText = `Error: ${errorMessage}`;
+            document.getElementById('overlay-button').style.display = 'block';
+        }
+
+        function hideOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+            window.location.reload();
+        }
 
         </script>
 
